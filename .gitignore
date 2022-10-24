@@ -1,0 +1,15 @@
+__pycache__
+
+# My stuff.
+config.py
+
+# Under development.
+src/comparisons/
+src/deep_dive/
+src/interfaces/
+
+# Testing stuff.
+main_profiling.prof
+
+# Environment stuff.
+venv/
