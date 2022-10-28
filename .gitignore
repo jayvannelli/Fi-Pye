@@ -1,12 +1,11 @@
-__pycache__
-
-# My stuff.
-config.py
+# Streamlit stuff.
+.streamlit/
 
 # Under development.
 src/comparisons/
 src/deep_dive/
 src/interfaces/
+src/dclasses/
 
 # Testing stuff.
 main_profiling.prof

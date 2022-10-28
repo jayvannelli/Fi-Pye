@@ -45,9 +45,11 @@ class Reader(BaseReader):
         base url version used by the endpoint, the specific endpoint path,
         and the parameters after the endpoint used in the request.
 
-        :param url_version: Base url used in endpoint ('v3' or 'v4').
-        :param path: Endpoint path.
-        :param params: Dictionary of parameters used in request.
+        Parameters
+        ----------
+            url_version : Base url used in endpoint ('v3' or 'v4').
+            path : Endpoint path.
+            params : Dictionary of parameters used in request.
 
         ------
         Return : pandas DataFrame
