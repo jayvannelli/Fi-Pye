@@ -10,6 +10,7 @@ from .institutions import Institutions
 from .mutual_funds import MutualFunds
 from .news import News
 from .ownership import Ownership
+from .performance import Performance
 from .price import Price
 from .private_companies import PrivateCompanies
 from .quote import Quote

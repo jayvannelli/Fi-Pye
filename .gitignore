@@ -1,14 +1,13 @@
+# Packaging stuff.
+src/fi_pye.egg-info/
+
 # Streamlit stuff.
 .streamlit/
 
 # Under development.
-src/comparisons/
-src/deep_dive/
-src/interfaces/
-src/dclasses/
-
-# Testing stuff.
-main_profiling.prof
+src/fi_pye/comparisons/
+src/fi_pye/deep_dive/
+src/fi_pye/dclasses/
 
 # Environment stuff.
 venv/

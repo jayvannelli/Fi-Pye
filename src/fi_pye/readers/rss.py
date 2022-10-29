@@ -16,6 +16,29 @@ class RSS(Reader):
         - Latest SEC documents.
     """
 
+    def institutional_holder_rss(self, page: int = 0):
+        """Query FMP / institutional-ownership/rss_feed / API.
+
+        Obtain institutional ownership live rss feed.
+
+
+        Parameters
+        ----------
+            page : Response page number.
+
+        ------
+        Return : pandas DataFrame
+        ------
+        """
+        return self.data(
+            url_version="v4",
+            path="institutional-ownership/rss_feed",
+            params={
+                "page": page,
+                "apikey": self.apikey,
+            },
+        )
+
     def price_target_rss(self, page: int = 0):
         """Query FMP / price-target-rss-feed / API.
 
