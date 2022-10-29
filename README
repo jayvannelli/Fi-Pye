@@ -1,5 +1,0 @@
-# Fi-Pye
-
-Fi-Pye is a library written in python for obtaining financial
-data from Financial Modeling Prep. Since data is obtained from FMP's API,
-you must have an API token in order to use this library.
