@@ -5,6 +5,7 @@ from time import perf_counter
 def main():
     start = perf_counter()
 
+
     end = perf_counter()
     print(end - start)
 

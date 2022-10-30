@@ -2,22 +2,21 @@ from .reader import Reader
 
 
 class Senators(Reader):
-    def senate_trading(
-        self,
-        symbol: str,
-    ):
+    """ """
+    def senate_trading(self, symbol: str):
         """Query FMP / senate-trading / API.
 
         Obtain company senate trades.
 
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            page : Response page number.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -28,21 +27,20 @@ class Senators(Reader):
             },
         )
 
-    def senate_disclosures(
-        self,
-        symbol: str,
-    ):
+    def senate_disclosures(self, symbol: str):
         """Query FMP / senate-disclosure / API.
 
         Obtain company senate disclosures.
 
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",

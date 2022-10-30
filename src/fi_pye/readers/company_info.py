@@ -2,25 +2,21 @@ from .reader import Reader
 
 
 class CompanyInformation(Reader):
-    def company_profile(
-        self,
-        symbol: str,
-    ):
+    """ """
+    def company_profile(self, symbol: str):
         """Query FMP / profile / API.
 
         Obtain company profile.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/companies-key-stats-free-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -30,24 +26,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def key_executives(
-        self,
-        symbol: str,
-    ):
+    def key_executives(self, symbol: str):
         """Query FMP / key-executives / API.
 
         Obtain stock key executives.
 
-        Documentation
-        -------------
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -57,22 +49,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def shares_float(
-        self,
-        symbol: str,
-    ):
+    def shares_float(self, symbol: str):
         """Query FMP / shares_float / API.
 
         Obtain shares float for a given company.
 
-        Documentation
-        -------------
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        :return: pandas DataFrame or list of dictionaries.
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -83,23 +73,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def company_outlook(
-        self,
-        symbol: str,
-    ):
+    def company_outlook(self, symbol: str):
         """Query FMP / company-outlook / API.
 
         Obtain outlook for a given company.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-outlook-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        :return: List of dictionaries.
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -110,23 +97,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def executive_compensation(
-        self,
-        symbol: str,
-    ):
+    def executive_compensation(self, symbol: str):
         """Query FMP / governance/executive_compensation / API.
 
         Obtain executive compensation.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/executive-compensation-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        :return: List of dictionaries.
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -137,23 +121,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def individual_beneficial_ownership(
-        self,
-        symbol: str,
-    ):
+    def individual_beneficial_ownership(self, symbol: str):
         """Query FMP / insider/ownership/acquisition_of_beneficial_ownership / API.
 
         Obtain company individual beneficial ownership.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/individual-beneficial-ownership-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        :return: List of dictionaries.
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -164,25 +145,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def stock_peers(
-        self,
-        symbol: str,
-    ):
+    def stock_peers(self, symbol: str):
         """Query FMP / stock_peers / API.
 
         Obtain company stock peers.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/stock-peers-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -193,25 +169,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def core_information(
-        self,
-        symbol: str,
-    ):
+    def core_information(self, symbol: str):
         """Query FMP / company-core-information / API.
 
         Obtain company core information.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-core-information-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -222,10 +193,7 @@ class CompanyInformation(Reader):
             },
         )
 
-    def company_rating(
-        self,
-        symbol: str,
-    ):
+    def company_rating(self, symbol: str):
         """Query FMP / rating / API.
 
         Obtain company rating.
@@ -233,17 +201,15 @@ class CompanyInformation(Reader):
         Company ratings are based on their financial statement, Discounted
         cash flow analysis, financial ratios and its intrinsic value.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/companies-rating-free-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -253,25 +219,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def notes_due(
-        self,
-        symbol: str,
-    ):
+    def notes_due(self, symbol: str):
         """Query FMP / rating / API.
 
         Obtain company rating.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-notes-due-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -282,25 +243,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def esg_score(
-        self,
-        symbol: str,
-    ):
+    def esg_score(self, symbol: str):
         """Query FMP / esg-environmental-social-governance-data / API.
 
         Obtain company esg score.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/esg-score-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -311,25 +267,20 @@ class CompanyInformation(Reader):
             },
         )
 
-    def esg_risk_rating(
-        self,
-        symbol: str,
-    ):
+    def esg_risk_rating(self, symbol: str):
         """Query FMP / esg-environmental-social-governance-data-ratings / API.
 
         Obtain company esg risk ratings.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-esg-risk-ratings-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",

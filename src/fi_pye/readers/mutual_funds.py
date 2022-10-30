@@ -4,20 +4,21 @@ from .reader import Reader
 class MutualFunds(Reader):
     """Mutual Funds. """
 
-    def available_dates(
-            self,
-            symbol: str,
-    ):
-        """List of available dates for fund (by symbol).
+    def available_dates(self, symbol: str):
+        """Query FMP / mutual-fund-holdings/portfolio-date / API.
 
+        Returns a list of available dates for a Mutual fund (by symbol)
+        which can be used in the func 'portfolio_holdings'.
 
         Parameters
         ----------
-            symbol : Mutual fund symbol.
+        symbol :
+            Mutual fund ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -28,20 +29,21 @@ class MutualFunds(Reader):
             },
         )
 
-    def available_dates_by_cik(
-            self,
-            cik: str,
-    ):
-        """List of available dates for fund (by CIK number).
+    def available_dates_by_cik(self, cik: str):
+        """Query FMP / mutual-fund-holdings/portfolio-date / API.
 
+        Returns a list of available dates for a Mutual fund (by CIK number)
+        which can be used in the func 'portfolio_holdings'.
 
         Parameters
         ----------
-            cik : Mutual fund CIK number.
+        cik :
+            Mutual fund CIK number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -52,21 +54,24 @@ class MutualFunds(Reader):
             },
         )
 
-    def portfolio_holdings(
-            self,
-            symbol: str,
-            date: str,
-    ):
-        """Summary of a given fund's portfolio (by symbol).
+    def portfolio_holdings(self, symbol: str, date: str):
+        """Query FMP / mutual-fund-holdings / API.
 
+        Returns the portfolio holdings of a specified Mutual fund (by symbol)
+        and on a given date. To get available dates for a specific
+        ETF, query 'available_dates' or 'available_dates_by_cik'.
 
         Parameters
         ----------
-            symbol : Mutual fund symbol.
-            date : Reporting date.
+        symbol :
+            Mutual fund ticker symbol
+        date :
+            Date to get portfolio holdings from in 'YYYY-MM-DD' format
 
-        ------
-        Return : pandas DataFrame
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -78,21 +83,24 @@ class MutualFunds(Reader):
             },
         )
 
-    def portfolio_holdings_by_cik(
-            self,
-            cik: str,
-            date: str,
-    ):
-        """Summary of a given fund's portfolio (by CIK number).
+    def portfolio_holdings_by_cik(self, cik: str, date: str):
+        """Query FMP / mutual-fund-holdings / API.
 
+        Returns the portfolio holdings of a specified Mutual fund (by CIK number)
+        and on a given date. To get available dates for a specific
+        ETF, query 'available_dates' or 'available_dates_by_cik'.
 
         Parameters
         ----------
-            cik : Mutual fund CIK number.
-            date : Reporting date.
+        cik :
+            Mutual fund CIK number
+        date :
+            Date to get portfolio holdings from in 'YYYY-MM-DD' format
 
-        ------
-        Return : pandas DataFrame
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",

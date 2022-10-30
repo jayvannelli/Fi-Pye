@@ -13,16 +13,17 @@ from .base import BaseReader
 class Reader(BaseReader):
     __slots__ = "apikey", "session"
 
-    def __init__(
-        self,
-        apikey: str,
-        session: requests.Session | None = None,
-    ):
+    def __init__(self, apikey: str, session: requests.Session | None = None):
         """
+        Create instantiation of reader, which is used to obtain data
+        from FMP without needing to input an API key with each request.
+
         Parameters
         ----------
-            apikey : FMP API token.
-            session : requests Session.
+        apikey :
+            FMP API token.
+        session : default = None
+            requests Session.
         """
         if not apikey or not isinstance(apikey, str):
             raise ValueError("FMP api key needed.")
@@ -34,12 +35,7 @@ class Reader(BaseReader):
         """Close requests session."""
         self.session = self.session.close()
 
-    def data(
-        self,
-        url_version: str,
-        path: str,
-        params: dict[str, Union[str, int]],
-    ):
+    def data(self, url_version: str, path: str, params: dict[str, Union[str, int]]):
         """
         Function to obtain data from the FMP API endpoint, given the FMP
         base url version used by the endpoint, the specific endpoint path,
@@ -47,12 +43,16 @@ class Reader(BaseReader):
 
         Parameters
         ----------
-            url_version : Base url used in endpoint ('v3' or 'v4').
-            path : Endpoint path.
-            params : Dictionary of parameters used in request.
+        url_version :
+            Base url used in endpoint, either 'v3' or 'v4'
+        path :
+            Endpoint path (after base url but before parameters)
+        params :
+            Dictionary of parameters used for request.
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame | None
+            pandas.Dataframe
         """
         return _get_df(_construct_url(url_version, path), params, self.session)

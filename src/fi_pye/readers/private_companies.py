@@ -3,66 +3,72 @@ from .reader import Reader
 
 class PrivateCompanies(Reader):
     """ """
-
-    def search_crowdfunding_offerings(
-        self,
-        company_name: str,
-    ):
+    def crowdfunding_offerings(self, company: str):
         """Query FMP / crowdfunding-offerings/search / API.
-
-        Search crowdfunding offerings by company name.
 
         Search for a specific private company (by name) undergoing a crowdfunding offering
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/crowdfunding-offerings-company-search-api/
-
         Parameters
         ----------
-            company_name : Company name to search for(
-                                Example='Enotap'
-                            ).
+        company :
+            Full company name.
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
+
+        Examples
+        -------
+        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>>
+        >>> search_result = private_companies.crowdfunding_offerings('Enotap')
+        >>> print(search_result)
+                  cik        name                 date
+        0  0001912939  Enotap LLC  2022-07-20 17:06:10
+        1  0001912939  Enotap LLC  2022-04-19 10:21:38
+        2  0001912939  Enotap LLC  2022-03-30 16:56:08
+        3  0001912939  Enotap LLC  2022-03-09 14:58:03
         """
         return self.data(
-            url_version="v3",
+            url_version="v4",
             path="crowdfunding-offerings/search",
             params={
-                "name": company_name,
+                "name": company,
                 "apikey": self.apikey,
             },
         )
 
-    def search_crowdfunding_offerings_by_cik(
-        self,
-        cik: str,
-    ):
+    def crowdfunding_offerings_by_cik(self, cik: str):
         """Query FMP / crowdfunding-offerings / API.
-
-        Search crowdfunding offerings by company CIK number.
 
         Search for a specific private company (by CIK) undergoing a crowdfunding offering
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/crowdfunding-offerings-by-cik-api/
-
         Parameters
         ----------
-            company_name : Company name to search for(
-                                Example='0001916078'    <- CIK number for OYO Fitness, Inc.
-                            ).
+        cik :
+            Company CIK number.
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
+
+        Examples
+        -------
+        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>>
+        >>> search_result = private_companies.crowdfunding_offerings_by_cik('0001916078')
+        >>> print(search_result)
+          formType  ... netIncomePriorFiscalYear
+        0      C-U  ...                 -10860.0
+        1     C-AR  ...                 -10860.0
+        2        C  ...                 -10860.0
+
+        [3 rows x 45 columns]
         """
         return self.data(
-            url_version="v3",
+            url_version="v4",
             path="crowdfunding-offerings",
             params={
                 "cik": cik,
@@ -70,66 +76,68 @@ class PrivateCompanies(Reader):
             },
         )
 
-    def search_equity_offerings(
-        self,
-        company_name: str,
-    ):
+    def equity_offerings(self, company: str):
         """Query FMP / fundraising/search / API.
 
-        Search equity offerings by company name.
-
         Search for a specific private company (by name) undergoing an equity offering
-        *If the company name is 2 words, combine them like the example below.
-
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/equity-offerings-fundraising-company-search-api/
 
         Parameters
         ----------
-            company_name : Company name to search for(
-                                Example='marinalife'
-                            ).
+        company :
+            Full company name.
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
+
+        Examples
+        -------
+        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>>
+        >>> search_result = private_companies.equity_offerings('marinalife')
+        >>> print(search_result)
+                  cik              name                 date
+        0  0001870523  Marinalife, Inc.  2022-07-25 14:13:21
         """
         return self.data(
-            url_version="v3",
+            url_version="v4",
             path="fundraising/search",
             params={
-                "name": company_name,
+                "name": company,
                 "apikey": self.apikey,
             },
         )
 
-    def search_equity_offerings_by_cik(
-        self,
-        cik: str,
-    ):
+    def equity_offerings_by_cik(self, cik: str):
         """Query FMP / fundraising / API.
-
-        Search equity offerings by company CIK number.
 
         Search for a specific private company (by CIK) undergoing an equity offering
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/equity-offerings-fundraising-by-cik-api/
-
         Parameters
         ----------
-            company_name : Company name to search for(
-                                Example='0001870523'    <- CIK number for Marinalife, Inc.
-                            ).
+        cik :
+            Company CIK number.
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
+
+        Examples
+        -------
+        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>>
+        >>> search_result = private_companies.equity_offerings_by_cik('0001870523')
+        >>> print(search_result)
+          formType  ... grossProceedsUsed
+        0        D  ...               0.0
+        1        D  ...               0.0
+
+        [2 rows x 40 columns]
         """
         return self.data(
-            url_version="v3",
+            url_version="v4",
             path="fundraising",
             params={
                 "cik": cik,

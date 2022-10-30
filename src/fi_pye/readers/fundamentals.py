@@ -10,31 +10,37 @@ class Fundamentals(Reader):
     The apikey set during instantiation will be used as the default apikey
     for all methods within this class. To use a different api during a method
     call, simply pass one as an argument instead of leaving apikey = None.
-    """
 
-    def income_statement(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    Examples
+    --------
+    >>> fundamentals = Fundamentals(apikey='abc123')
+    >>>
+    >>> TICKER = "AAPL"
+    >>> PERIOD = "quarter"
+    >>> LIMIT = 25
+    >>>
+    >>> inc_stmt = fundamentals.income_statement(TICKER, PERIOD, LIMIT)
+    >>> bal_sheet = fundamentals.balance_sheet(TICKER, PERIOD, LIMIT)
+    >>> cash_flow = fundamentals.cash_flow(TICKER, PERIOD, LIMIT)
+    """
+    def income_statement(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / income-statement / API.
 
         Obtain stock income statement(s).
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statement-free-api/#Income-Statement
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -46,29 +52,24 @@ class Fundamentals(Reader):
             },
         )
 
-    def income_statement_growth(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def income_statement_growth(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / income-statement-growth / API.
 
         Obtain stock income statement(s) growth.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statements-growth-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -80,29 +81,24 @@ class Fundamentals(Reader):
             },
         )
 
-    def income_statement_as_reported(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def income_statement_as_reported(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / income-statement / API.
 
         Obtain stock income statement(s) as reported.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statement-as-reported-api/#Income-Statements-as-reported
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -114,31 +110,25 @@ class Fundamentals(Reader):
             },
         )
 
-    def balance_sheet(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def balance_sheet(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / balance-sheet-statement / API.
 
         Obtain stock balance sheet statement(s).
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statement-free-api/#Balance-Sheet-Statement
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
-
         return self.data(
             url_version="v3",
             path=f"balance-sheet-statement/{symbol.upper()}",
@@ -149,31 +139,25 @@ class Fundamentals(Reader):
             },
         )
 
-    def balance_sheet_growth(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def balance_sheet_growth(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / balance-sheet-statement-growth / API.
 
         Obtain stock balance sheet statement(s) growth.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statements-growth-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
-
         return self.data(
             url_version="v3",
             path=f"balance-sheet-statement-growth/{symbol.upper()}",
@@ -184,29 +168,24 @@ class Fundamentals(Reader):
             },
         )
 
-    def balance_sheet_as_reported(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def balance_sheet_as_reported(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / balance-sheet-statement / API.
 
         Obtain stock balance sheet statement(s) as reported.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statement-as-reported-api/#Balance-Sheet-Statement-as-reported
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -218,29 +197,24 @@ class Fundamentals(Reader):
             },
         )
 
-    def cash_flow(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def cash_flow(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / cash-flow-statement / API.
 
         Obtain stock cash flow sheet statement(s).
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statement-free-api/#Cash-Flow-Statement
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -252,29 +226,24 @@ class Fundamentals(Reader):
             },
         )
 
-    def cash_flow_growth(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def cash_flow_growth(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / cash-flow-statement-growth / API.
 
         Obtain stock cash flow statement(s) growth.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statements-growth-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -286,29 +255,24 @@ class Fundamentals(Reader):
             },
         )
 
-    def cash_flow_as_reported(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def cash_flow_as_reported(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / cash-flow-statement / API.
 
         Obtain stock cash flow statement(s) as reported.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-statement-as-reported-api/#Cash-Flow-Statement-as-reported
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",

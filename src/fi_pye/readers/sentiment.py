@@ -2,27 +2,23 @@ from .reader import Reader
 
 
 class Sentiment(Reader):
-    def stock_social_sentiment(
-        self,
-        symbol: str,
-        page: int = 0,
-    ):
+    """ """
+    def stock_social_sentiment(self, symbol: str, page: int = 0):
         """Query FMP / social-sentiment / API.
 
         Obtain social sentiment statistics for a specific stock.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/social-sentiment-api/
-
         Parameters
         ----------
-            type : Type of trend ('bullish' or 'bearish')
-            source : Social media source ('twitter' or 'stocktwits')
+        symbol :
+            Stock ticker symbol
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -34,27 +30,22 @@ class Sentiment(Reader):
             },
         )
 
-    def trending_social_sentiment(
-        self,
-        type: str,
-        source: str = "twitter",
-    ):
+    def trending_social_sentiment(self, type: str, source: str = "twitter"):
         """Query FMP / social-sentiments/trending / API.
 
         Obtain trending social sentiment.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/social-sentiment-api/
-
         Parameters
         ----------
-            type : Type of trend ('bullish' or 'bearish')
-            source : Social media source ('twitter' or 'stocktwits')
+        type :
+            Type of trend ('bullish' or 'bearish')
+        source :
+            Social media source ('twitter' or 'stocktwits')
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -66,27 +57,22 @@ class Sentiment(Reader):
             },
         )
 
-    def change_in_social_sentiment(
-        self,
-        type: str,
-        source: str = "twitter",
-    ):
+    def change_in_social_sentiment(self, type: str, source: str = "twitter"):
         """Query FMP / social-sentiments/change / API.
 
         Obtain change in social sentiment.
 
-        Documentation
-        -------------
-        https://site.financialmodelingprep.com/developer/docs/social-sentiment-api/
-
         Parameters
         ----------
-            type : Type of trend ('bullish' or 'bearish')
-            source : Social media source ('twitter' or 'stocktwits')
+        type :
+            Type of trend ('bullish' or 'bearish')
+        source :
+            Social media source ('twitter' or 'stocktwits')
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",

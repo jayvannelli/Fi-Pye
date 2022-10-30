@@ -4,20 +4,21 @@ from .reader import Reader
 class ExchangeTradedFunds(Reader):
     """Exchange Traded Funds (ETF). """
 
-    def available_dates(
-            self,
-            symbol: str = None,
-    ):
-        """List of available dates for fund (by symbol).
+    def available_dates(self, symbol: str):
+        """Query FMP / etf-holdings/portfolio-date / API.
 
+        Returns a list of available dates for an ETF (by symbol)
+        which can be used in the func 'portfolio_holdings'.
 
         Parameters
         ----------
-            symbol : ETF symbol.
+        symbol :
+            Exchange Traded Fund (ETF) ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -28,20 +29,21 @@ class ExchangeTradedFunds(Reader):
             },
         )
 
-    def available_dates_by_cik(
-            self,
-            cik: str,
-    ):
-        """List of available dates for fund (by CIK number).
+    def available_dates_by_cik(self, cik: str):
+        """Query FMP / etf-holdings/portfolio-date / API.
 
+        Returns a list of available dates for an ETF (by CIK number)
+        which can be used in the func 'portfolio_holdings'.
 
         Parameters
         ----------
-            cik : ETF CIK number.
+        cik :
+            Exchange Traded Fund (ETF) CIK number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -52,21 +54,24 @@ class ExchangeTradedFunds(Reader):
             },
         )
 
-    def portfolio_holdings(
-            self,
-            symbol: str,
-            date: str,
-    ):
-        """Summary of a given fund's portfolio (by symbol).
+    def portfolio_holdings(self, symbol: str, date: str):
+        """Query FMP / etf-holdings / API.
 
+        Returns the portfolio holdings of a specified ETF (by symbol)
+        and on a given date. To get available dates for a specific
+        ETF, query 'available_dates' or 'available_dates_by_cik'.
 
         Parameters
         ----------
-            symbol : ETF symbol.
-            date : Reporting date.
+        symbol :
+            Exchange Traded Fund (ETF) ticker symbol
+        date :
+            Date to get portfolio holdings from in 'YYYY-MM-DD' format
 
-        ------
-        Return : pandas DataFrame
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -78,21 +83,24 @@ class ExchangeTradedFunds(Reader):
             },
         )
 
-    def portfolio_holdings_by_cik(
-            self,
-            cik: str,
-            date: str,
-    ):
-        """Summary of a given fund's portfolio (by CIK number).
+    def portfolio_holdings_by_cik(self, cik: str, date: str):
+        """Query FMP / etf-holdings / API.
 
+        Returns the portfolio holdings of a specified ETF (by CIK number)
+        and on a given date. To get available dates for a specific
+        ETF, query 'available_dates' or 'available_dates_by_cik'.
 
         Parameters
         ----------
-            cik : ETF CIK number.
-            date : Reporting date.
+        cik :
+            Exchange Traded Fund (ETF) CIK number
+        date :
+            Date to get portfolio holdings from in 'YYYY-MM-DD' format
 
-        ------
-        Return : pandas DataFrame
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -104,20 +112,28 @@ class ExchangeTradedFunds(Reader):
             },
         )
 
-    def expense_ratio(
-            self,
-            symbol: str,
-    ):
-        """Obtain expense ratio info for fund (by symbol).
+    def expense_ratio(self, symbol: str):
+        """Query FMP / etf-holdings / API.
 
+        Returns information about a given ETF (by symbol).
+
+        Some ETF info returned:
+            - Assets under management (AUM)
+            - CUSIP
+            - Description
+            - ISIN
+            - Net asset value (NAV)
+            - ...
 
         Parameters
         ----------
-            symbol : ETF symbol.
+        symbol :
+            Exchange Traded Fund (ETF) ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -128,20 +144,20 @@ class ExchangeTradedFunds(Reader):
             },
         )
 
-    def country_weightings(
-            self,
-            symbol: str,
-    ):
-        """Obtain country exposure for fund (by symbol).
+    def country_weightings(self, symbol: str):
+        """Query FMP / etf-country-weightings / API.
 
+        Returns specific ETF (by symbol) portfolio exposure by country.
 
         Parameters
         ----------
-            symbol : ETF symbol.
+        symbol :
+            Exchange Traded Fund (ETF) ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -149,20 +165,20 @@ class ExchangeTradedFunds(Reader):
             params={"apikey": self.apikey},
         )
 
-    def sector_weightings(
-            self,
-            symbol: str,
-    ):
-        """Obtain sector exposure for fund (by symbol).
+    def sector_weightings(self, symbol: str):
+        """Query FMP / etf-sector-weightings / API.
 
+        Returns specific ETF (by symbol) portfolio exposure by sector.
 
         Parameters
         ----------
-            symbol : ETF symbol.
+        symbol :
+            Exchange Traded Fund (ETF) ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",

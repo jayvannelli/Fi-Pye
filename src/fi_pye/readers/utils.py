@@ -1,10 +1,20 @@
 import logging
 import requests
-
+import datetime as dt
 import pandas as pd
+
+from pandas import to_datetime
 
 CONNECTION_TIMEOUT = 5
 READ_TIMEOUT = 30
+
+VALID_SEC_FILING_TYPES = [
+    "10-Q", "8-K", "4", "13F-HR", "3", "SD", "PX14A6G", "DEFA14A",
+    "DEF 14A", "424B5", "FWP", "PRE 14A", "SC 13G/A", "UPLOAD",
+    "CORRESP", "SC 13G", "10-K", "424B2", "IRANNOTICE", "S-8",
+    "S-3ASR", "3/A", "5", "POS AM", "424B3", "S-4", "S-8 POS",
+    "8-K/A", "CT ORDER", "NO ACT", "ARS"
+]
 
 
 def _init_session(session=None):
@@ -19,8 +29,8 @@ def _init_session(session=None):
 
 def _construct_url(url_version, path):
     """ """
-    valid_values = ["v3", "v4"]
-    if url_version not in valid_values:
+    _valid_values = ["v3", "v4"]
+    if url_version not in _valid_values:
         raise ValueError(
             f"Invalid url version: {url_version}. "
             "The only available url versions are 'v3' and 'v4'. "
@@ -54,18 +64,20 @@ def _get_df(url, params, session):
     if session is None:
         raise Exception("requests.Session cannot be None.")
 
-    with session as s:
-        response = s.get(
-            url=url,
-            params=params,
-            timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT),
-        )
-
+    response = session.get(
+        url=url,
+        params=params,
+        timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT),
+    )
     if len(response.json()) == 1 and "Error Message" in response.json():
         raise ValueError("Invalid API token response received.")
 
     try:
         df = pd.DataFrame(response.json())
+
+        # Historical dividends returns a weird json from FMP, this is for that.
+        if 'historical-price-full/stock_dividend/' in url:
+            df = pd.DataFrame(response.json()['historical'])
 
     except Exception as e:
         logging.error(f"DataFrame conversion exception: {e}")
@@ -80,3 +92,38 @@ def _get_df(url, params, session):
             return None
 
         return df
+
+
+def _validate_sec_filing_type(value):
+    """ """
+    _valid_values = VALID_SEC_FILING_TYPES
+    if value not in _valid_values:
+        raise ValueError(
+            f"Invalid SEC filing type passed: {value}. "
+            f"Valid SEC filing types include: {_valid_values}. "
+        )
+
+    return value
+
+
+def _validate_calendar_dates(start: str, end: str):
+    """ """
+    try:
+        start = to_datetime(start)
+        end = to_datetime(end)
+    except (TypeError, ValueError):
+        raise ValueError("Invalid date format.")
+
+    if start > end:
+        raise ValueError("start date must be earlier than end date.")
+
+    diff = end - start
+
+    if diff.days > 90:
+        raise ValueError(
+            "FMP allows a maximum of 3 months between the 'from' and 'to' dates. "
+            f"Passed start date: {start} and end date: {end} . "
+        )
+
+    else:
+        return start, end

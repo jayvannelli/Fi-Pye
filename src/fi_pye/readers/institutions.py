@@ -12,21 +12,22 @@ class Institutions(Reader):
             params={"apikey": self.apikey},
         )
 
-    def available_dates(
-            self,
-            cik: str,
-    ):
-        """List of available dates for a specific institution (by CIK).
+    def available_dates(self, cik: str):
+        """Query FMP / institutional-ownership/portfolio-date / API.
 
+        Returns a list of available dates for an institution (by CIK number)
+        which can be used in the func 'portfolio_holdings'.
 
         Parameters
         ----------
-            cik : Institution CIK number.
-                    EXAMPLE: Berkshire Hathaway Inc. = '0001067983'
+        cik :
+            Institution CIK number
+            (Ex. Berkshire Hathaway Inc = '0001067983')
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -37,20 +38,20 @@ class Institutions(Reader):
             },
         )
 
-    def portfolio_summary(
-            self,
-            cik: str,
-    ):
-        """Summary of a given institution's portfolio.
+    def portfolio_summary(self, cik: str):
+        """Query FMP / institutional-ownership/portfolio-holdings-summary / API.
 
+        Returns summary of an institutions' portfolio.
 
         Parameters
         ----------
-            cik : Institution CIK number.
-                    EXAMPLE: Berkshire Hathaway Inc. = '0001067983'
+        cik :
+            Institution CIK number
 
-        ------
-        Return : pandas DataFrame
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -61,20 +62,22 @@ class Institutions(Reader):
             },
         )
 
-    def portfolio_composition(
-            self,
-            cik: str,
-    ):
-        """Detailed information about each position in an institutions' portfolio.
+    def portfolio_composition(self, cik: str):
+        """Query FMP / institutional-ownership/portfolio-holdings-summary / API.
+
+        Returns detailed information about each position
+        in an institutions' portfolio.
 
 
         Parameters
         ----------
-            cik : Institution CIK number.
-                    EXAMPLE: Berkshire Hathaway Inc. = '0001067983'
+        cik :
+            Institution CIK number
 
-        ------
-        Return : pandas DataFrame
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -85,22 +88,22 @@ class Institutions(Reader):
             },
         )
 
-    def portfolio_industry_summary(
-            self,
-            cik: str,
-            date: str,
-    ):
-        """Summary of a given institution's portfolio (broken down by industry).
+    def portfolio_industry_summary(self, cik: str, date: str):
+        """Query FMP / institutional-ownership/industry/portfolio-holdings-summary / API.
 
+        Returns a summary for each industry within an institutions portfolio
 
         Parameters
         ----------
-            cik : Institution CIK number.
-                    EXAMPLE: Berkshire Hathaway Inc. = '0001067983'
-            date: Filing date.
+        cik :
+            Institution CIK number
+        date :
+            Date to get portfolio holdings from in 'YYYY-MM-DD' format
 
-        ------
-        Return : pandas DataFrame
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",

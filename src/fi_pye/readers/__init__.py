@@ -1,6 +1,8 @@
 from .analysts import Analysts
+from .calendars import Calendars, StockCalendars
 from .company_info import CompanyInformation
 from .etfs import ExchangeTradedFunds
+from .filings import Filings
 from .fundamental_analysis import FundamentalAnalysis
 from .fundamentals import Fundamentals
 from .holders import Holders
@@ -13,7 +15,7 @@ from .ownership import Ownership
 from .performance import Performance
 from .price import Price
 from .private_companies import PrivateCompanies
-from .quote import Quote
+from .quote import Quotes
 from .rss import RSS
 from .senators import Senators
 from .sentiment import Sentiment

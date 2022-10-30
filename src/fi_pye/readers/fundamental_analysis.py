@@ -2,29 +2,25 @@ from .reader import Reader
 
 
 class FundamentalAnalysis(Reader):
-    def financial_ratios(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    """ """
+    def financial_ratios(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / ratios / API.
 
         Obtain stock financial ratios.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-ratio-free-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -36,33 +32,28 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def enterprise_value(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def enterprise_value(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / enterprise-values / API.
 
         Obtain stock enterprise value.
 
         The enterprise value is a proportion of an organization's absolute worth
-        defined in terms of financing and is calculated using the following formula:
-
-        Enterprise Value = Market Cap - Cash and Cash Equivalents + Total Debt.
-
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-enterprise-value-api/
+        defined in terms of financing and is calculated using the following formula :
+            Enterprise Value = Market Cap - Cash and Cash Equivalents + Total Debt.
 
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -74,10 +65,7 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def financial_score(
-        self,
-        symbol: str,
-    ):
+    def financial_score(self, symbol: str):
         """Query FMP / score / API.
 
         Obtain stock financial score.
@@ -85,17 +73,15 @@ class FundamentalAnalysis(Reader):
         Financial scores returned from this endpoint are
         based on the Altman Z-Score and Piotroski Score.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/piotroski-score/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -106,28 +92,28 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def owner_earnings(
-        self,
-        symbol: str,
-    ):
+    def owner_earnings(self, symbol: str):
         """Query FMP / owner_earnings / API.
 
         Obtain stock owners earnings.
 
-        The owners earnings is a valuation method detailed by Warren Buffet that states
-        the value of a company is the total of new cash flows expected to occur over the
-        life of the business, minus any reinvestment of earnings.
+        The owners earnings is a valuation method detailed by
+        Warren Buffet that states the value of a company is the
+        total of new cash flows expected to occur over the life
+        of the business, minus any reinvestment of earnings.
 
-        Formula:
-            - Owners Earnings = Operating Cash Flow + Maintenance Capex
+        Owners earnings is calculated with the following formula :
+            Owners Earnings = Operating Cash Flow + Maintenance Capex
 
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -138,25 +124,20 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def ttm_ratios(
-        self,
-        symbol: str,
-    ):
+    def ttm_ratios(self, symbol: str):
         """Query FMP / ratios-ttm / API.
 
         Obtain stock trailing twelve months (TTM) ratios.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/financial-ratio-free-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -166,29 +147,24 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def key_metrics(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def key_metrics(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / key-metrics / API.
 
         Obtain stock key metrics.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-key-metrics-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -200,29 +176,24 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def key_metrics_ttm(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def key_metrics_ttm(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / key-metrics-ttm / API.
 
         Obtain stock trailing twelve months (TTM) key metrics.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-key-metrics-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -234,29 +205,24 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def financial_growth(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def financial_growth(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / financial-growth / API.
 
         Obtain stock financial statement growth.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/company-financial-statement-growth-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -268,25 +234,20 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def discounted_cash_flow(
-        self,
-        symbol: str,
-    ):
+    def discounted_cash_flow(self, symbol: str):
         """Query FMP / discounted-cash-flow / API.
 
         Obtain current stock discounted cash flow (DCF) valuation.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/companies-dcf-reports-free-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -294,27 +255,22 @@ class FundamentalAnalysis(Reader):
             params={"apikey": self.apikey},
         )
 
-    def historical_daily_dcf(
-        self,
-        symbol: str,
-        limit: int = 100,
-    ):
+    def historical_daily_dcf(self, symbol: str, limit: int = 25):
         """Query FMP / historical-discounted-cash-flow-statement / API.
 
         Obtain historical stock discounted cash flow (DCF) valuations on a daily basis.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/companies-dcf-reports-free-api/#Historical-DCF
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -325,29 +281,25 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def historical_dcf(
-        self,
-        symbol: str,
-        period: str = "annual",
-        limit: int = 100,
-    ):
+    def historical_dcf(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / historical-discounted-cash-flow-statement / API.
 
-        Obtain historical stock discounted cash flow (DCF) valuations on a quarterly or annual basis.
-
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/companies-dcf-reports-free-api/#Historical-DCF
+        Obtain historical stock discounted cash flow (DCF)
+        valuations on a quarterly or annual basis.
 
         Parameters
         ----------
-            symbol : Stock ticker symbol.
-            period : 'quarter' or 'annual'.
-            limit : Number of rows to return.
+        symbol :
+            Stock ticker symbol
+        period : default = 'annual'
+            'quarter' or 'annual'
+        limit : default = 25
+            Number of rows to return
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -359,25 +311,21 @@ class FundamentalAnalysis(Reader):
             },
         )
 
-    def advanced_dcf(
-        self,
-        symbol: str,
-    ):
+    def advanced_dcf(self, symbol: str):
         """
         Query FMP / advanced_discounted_cash_flow / API.
-        Obtain stock advanced discounted cash flow (DCF) projection.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/companies-dcf-reports-free-api/
+        Obtain stock advanced discounted cash flow (DCF) projection.
 
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -385,25 +333,20 @@ class FundamentalAnalysis(Reader):
             params={"symbol": symbol.upper(), "apikey": self.apikey},
         )
 
-    def advanced_levered_dcf(
-        self,
-        symbol: str,
-    ):
+    def advanced_levered_dcf(self, symbol: str):
         """Query FMP / advanced_levered_discounted_cash_flow / API.
 
         Obtain stock advanced discounted cash flow (DCF) projection including WACC.
 
-        Documentation
-        -------------
-            https://site.financialmodelingprep.com/developer/docs/companies-dcf-reports-free-api/
-
         Parameters
         ----------
-            symbol : Stock ticker symbol.
+        symbol :
+            Stock ticker symbol
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",

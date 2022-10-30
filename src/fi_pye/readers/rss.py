@@ -4,9 +4,9 @@ from .reader import Reader
 class RSS(Reader):
     """
     This class is used to obtain data from the RSS feeds available from
-    FMP's API.
+    FMPs API.
 
-    Currenlty available RSS feeds include:
+    Available RSS feeds include:
         - Price targets.
         - Mergers and acquisitions.
         - Insider trading.
@@ -21,14 +21,15 @@ class RSS(Reader):
 
         Obtain institutional ownership live rss feed.
 
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -44,17 +45,15 @@ class RSS(Reader):
 
         Obtain price targets live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/price-target-rss-feed-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -65,25 +64,20 @@ class RSS(Reader):
             },
         )
 
-    def mergers_and_acquisition_rss(
-        self,
-        page: int = 0,
-    ):
+    def mergers_and_acquisition_rss(self, page: int = 0):
         """Query FMP / mergers-acquisitions-rss-feed / API.
 
         Obtain mergers and acquisitions live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/merger-and-acquisition-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -94,25 +88,20 @@ class RSS(Reader):
             },
         )
 
-    def insider_trading_rss(
-        self,
-        page: int = 0,
-    ):
+    def insider_trading_rss(self, page: int = 0):
         """Query FMP / insider-trading-rss-feed / API.
 
         Obtain insider trading live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/insider-trading-rss-feed-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -123,25 +112,20 @@ class RSS(Reader):
             },
         )
 
-    def senate_trading_rss(
-        self,
-        page: int = 0,
-    ):
+    def senate_trading_rss(self, page: int = 0):
         """Query FMP / senate-trading-rss-feed / API.
 
         Obtain senate trading live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/senate-trading-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -152,25 +136,20 @@ class RSS(Reader):
             },
         )
 
-    def senate_disclosure_rss(
-        self,
-        page: int = 0,
-    ):
+    def senate_disclosure_rss(self, page: int = 0):
         """Query FMP / senate-disclosure-rss-feed / API.
 
         Obtain senate disclosure live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/senate-disclosure-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v4",
@@ -181,27 +160,22 @@ class RSS(Reader):
             },
         )
 
-    def eightk_rss(
-        self,
-        page: int = 0,
-        with_financials: bool = True,
-    ):
+    def eightk_rss(self, page: int = 0, with_financials: bool = True):
         """Query FMP / rss_feed_8k / API.
 
         Obtain 8K (Important Events) live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/rss-feed-8k-api/
-
         Parameters
         ----------
-            page : Response page number.
-            with_financials : Return 8K filing with financial's included.
+        page : default = 0
+            Response page number
+        with_financials : default = True
+            Return only 8-K filings that contain financials
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         if not isinstance(with_financials, bool):
             raise TypeError(
@@ -218,25 +192,20 @@ class RSS(Reader):
             },
         )
 
-    def sec_rss(
-        self,
-        page: int = 0,
-    ):
+    def sec_rss(self, page: int = 0):
         """Query FMP / rss_feed_8k / API.
 
         Obtain 8K (Important Events) live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/rss-feed-8k-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -247,25 +216,20 @@ class RSS(Reader):
             },
         )
 
-    def crowdfunding_offerings_rss(
-        self,
-        page: int = 0,
-    ):
+    def crowdfunding_offerings_rss(self, page: int = 0):
         """Query FMP / crowdfunding-offerings-rss-feed / API.
 
         Obtain private company crowdfunding offerings live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/crowdfunding-offerings-rss-feed-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
@@ -276,25 +240,20 @@ class RSS(Reader):
             },
         )
 
-    def equity_fundraising_offerings_rss(
-        self,
-        page: int = 0,
-    ):
+    def equity_fundraising_offerings_rss(self, page: int = 0):
         """Query FMP / fundraising-rss-feed / API.
 
         Obtain private company equity fundraising offerings live rss feed.
 
-        Documentation
-        -------------
-            - https://site.financialmodelingprep.com/developer/docs/equity-offerings-fundraising-rss-feed-api/
-
         Parameters
         ----------
-            page : Response page number.
+        page : default = 0
+            Response page number
 
-        ------
-        Return : pandas DataFrame
-        ------
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             url_version="v3",
