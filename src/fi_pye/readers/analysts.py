@@ -3,8 +3,40 @@ from .reader import Reader
 
 class Analysts(Reader):
     """
-    This can be used to access FMPs endpoints related to analyst
-    actions on a specific stock.
+    Query Financial Modeling Prep API endpoints related
+    to analysts & analyst actions on stocks.
+
+    Stock Endpoints
+    --------------
+    - Price target
+    - Price target with summary
+    - Price target with consensus
+    - Upgrades & downgrades
+    - Upgrades & downgrades consensus
+
+    Other Endpoints
+    ---------------
+    - Price target by analyst name
+    - Price target by grading company
+    - Upgrades & downgrades by grading company
+
+    Examples
+    --------
+    >>> analysts = Analysts(apikey='abc123') # Initialize data source
+    >>>
+    >>> # Stock price targets.
+    >>> tsla_pt = analysts.price_target("TSLA")
+    >>> amd_pt_summary = analysts.price_target_summary("AMD")
+    >>> aapl_pt_consensus = analysts.price_target_consensus("AAPL")
+    >>>
+    >>> # Stock upgrades & downgrades.
+    >>> nvda_up_n_down = analysts.upgrades_and_downgrades("NVDA")
+    >>> msft_up_n_down_consensus = analysts.upgrades_and_downgrades_consensus("MSFT")
+    >>>
+    >>> # Price targets and upgrades & downgrades by analyst/grading company.
+    >>> tim_anderson_targets = analysts.price_target_by_analyst("Tim Anderson")
+    >>> barclays_targets = analysts.price_target_by_company("Barclays")
+    >>> barclays_up_n_down = analysts.price_target_by_company("Barclays")
     """
     def price_target(self, symbol: str):
         """Query FMP / price-target / API.
@@ -21,6 +53,12 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> tsla_pt = analysts.price_target("TSLA")
         """
         return self.data(
             url_version="v4",
@@ -34,7 +72,7 @@ class Analysts(Reader):
     def price_target_summary(self, symbol: str):
         """Query FMP / price-target-summary / API.
 
-        Rather than Returnsing a list of all price targets for a
+        Rather than returning a list of all price targets for a
         stock, this endpoint will return a summary of all targets.
 
         Parameters
@@ -46,6 +84,12 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> amd_pt_summary = analysts.price_target_summary("AMD")
         """
         return self.data(
             url_version="v4",
@@ -70,6 +114,12 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> aapl_pt_consensus = analysts.price_target_consensus("AAPL")
         """
         return self.data(
             url_version="v4",
@@ -94,6 +144,12 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> tim_anderson_targets = analysts.price_target_by_analyst("Tim Anderson")
         """
         return self.data(
             url_version="v4",
@@ -118,12 +174,18 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> barclays_targets = analysts.price_target_by_company("Barclays")
         """
         return self.data(
             url_version="v4",
             path="price-target-analyst-company",
             params={
-                "name": company,
+                "company": company,
                 "apikey": self.apikey,
             },
         )
@@ -131,7 +193,7 @@ class Analysts(Reader):
     def upgrades_and_downgrades(self, symbol: str):
         """Query FMP / price-target / API.
 
-        Returns upgrades and downgrades for a given stock (by symbol).
+        Return upgrades and downgrades for a given stock (by symbol).
 
         Parameters
         ----------
@@ -142,6 +204,12 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> nvda_up_n_down = analysts.upgrades_and_downgrades("NVDA")
         """
         return self.data(
             url_version="v4",
@@ -167,6 +235,12 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> msft_up_n_down_consensus = analysts.upgrades_and_downgrades_consensus("MSFT")
         """
         return self.data(
             url_version="v4",
@@ -192,6 +266,12 @@ class Analysts(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>>
+        >>> barclays_up_n_down = analysts.price_target_by_company("Barclays")
         """
         return self.data(
             url_version="v4",

@@ -1,17 +1,18 @@
+import logging
+import pandas as pd
 import requests
-from typing import Union
 
 from .utils import (
+    CONNECTION_TIMEOUT,
+    READ_TIMEOUT,
     _construct_url,
     _init_session,
-    _get_df,
 )
+from typing import Union
 
-from .base import BaseReader
 
-
-class Reader(BaseReader):
-    __slots__ = "apikey", "session"
+class Reader:
+    __slots__ = "apikey", "session", "headers"
 
     def __init__(self, apikey: str, session: requests.Session | None = None):
         """
@@ -30,10 +31,11 @@ class Reader(BaseReader):
 
         self.apikey = apikey
         self.session = _init_session(session)  # Initialize session.
+        self.headers = None
 
     def close(self):
         """Close requests session."""
-        self.session = self.session.close()
+        self.session.close()
 
     def data(self, url_version: str, path: str, params: dict[str, Union[str, int]]):
         """
@@ -55,4 +57,41 @@ class Reader(BaseReader):
         object : pandas.DataFrame | None
             pandas.Dataframe
         """
-        return _get_df(_construct_url(url_version, path), params, self.session)
+        try:
+            return self._get_data(url=_construct_url(url_version, path), params=params)
+        finally:
+            self.close()
+
+    def _get_data(self, url, params):
+        """ """
+        out_json = self._get_response(url=url, params=params).json()
+        if "historical-price-full/stock_dividend/" in url:
+            out = out_json
+
+        try:
+            out = pd.DataFrame(out_json)
+
+        except Exception as e:
+            logging.error(f"DataFrame conversion exception: {e}")
+
+        else:
+            if len(out) == 0:
+                service = self.__class__.__name__
+                raise IOError(
+                    f"Request from: {service} returned no data; check if URL is invalid. "
+                    f"Request url: {url} ."
+                )
+
+            return out
+
+    def _get_response(self, url, params=None, headers=None):
+        """ """
+        headers = headers or self.headers
+        response = self.session.get(
+            url=url, params=params, headers=self.headers, timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT)
+        )
+        if response.status_code == requests.codes.ok:
+            return response
+
+        else:
+            logging.error(f"Response: {response} with status code: {response.status_code} isn't an okay code. ")

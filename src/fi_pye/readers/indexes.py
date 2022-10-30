@@ -10,6 +10,20 @@ class Indexes(Reader):
         - S&P 500
         - Nasdaq
         - Dow Jones
+
+    Examples
+    --------
+    >>> indexes = Indexes(apikey='abc123') # Initialize data source
+    >>>
+    >>> # Current index constituents
+    >>> sp500 = indexes.sp500_companies
+    >>> nasdaq = indexes.nasdaq_companies
+    >>> dow_jones = indexes.dow_jones_companies
+    >>>
+    >>> # Historical additions and removals to indexes.
+    >>> historical_sp500 = indexes.historical_sp500_companies
+    >>> historical_nasdaq = indexes.historical_nasdaq_companies
+    >>> historical_dow_jones = indexes.historical_dow_jones_companies
     """
     @property
     def sp500_companies(self):

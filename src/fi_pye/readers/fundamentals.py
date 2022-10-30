@@ -7,13 +7,9 @@ class Fundamentals(Reader):
     such as to get financial statements (cleaned or as reported) and financial
     statement growth on both a quarterly and/or annual basis.
 
-    The apikey set during instantiation will be used as the default apikey
-    for all methods within this class. To use a different api during a method
-    call, simply pass one as an argument instead of leaving apikey = None.
-
     Examples
     --------
-    >>> fundamentals = Fundamentals(apikey='abc123')
+    >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
     >>>
     >>> TICKER = "AAPL"
     >>> PERIOD = "quarter"
@@ -41,6 +37,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.income_statement_growth(symbol="TSLA",
+        ...                                             period='quarter',
+        ...                                             limit=5)
         """
         return self.data(
             url_version="v3",
@@ -70,6 +74,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.income_statement_growth(symbol="AMZN",
+        ...                                             period='quarter',
+        ...                                             limit=20)
         """
         return self.data(
             url_version="v3",
@@ -99,6 +111,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.income_statement_as_reported(symbol="AAPL",
+        ...                                                  period='annual',
+        ...                                                  limit=10)
         """
         return self.data(
             url_version="v3",
@@ -128,6 +148,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.balance_sheet(symbol="MMM",
+        ...                                   period='quarter',
+        ...                                   limit=4)
         """
         return self.data(
             url_version="v3",
@@ -157,6 +185,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.balance_sheet_growth(symbol="AMD",
+        ...                                          period='annual',
+        ...                                          limit=18)
         """
         return self.data(
             url_version="v3",
@@ -186,6 +222,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.balance_sheet_as_reported(symbol="PYPL",
+        ...                                               period='quarter',
+        ...                                               limit=30)
         """
         return self.data(
             url_version="v3",
@@ -215,6 +259,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.cash_flow(symbol="GOOGL",
+        ...                              period='annual',
+        ...                              limit=20)
         """
         return self.data(
             url_version="v3",
@@ -244,6 +296,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.cash_flow_growth(symbol="UL",
+        ...                                     period='quarter',
+        ...                                     limit=12)
         """
         return self.data(
             url_version="v3",
@@ -273,6 +333,14 @@ class Fundamentals(Reader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>>
+        >>> data = fundamentals.cash_flow_as_reported(symbol="TSM",
+        ...                                          period='annual',
+        ...                                          limit=5)
         """
         return self.data(
             url_version="v3",

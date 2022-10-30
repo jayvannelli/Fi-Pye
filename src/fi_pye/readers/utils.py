@@ -1,7 +1,4 @@
-import logging
 import requests
-import datetime as dt
-import pandas as pd
 
 from pandas import to_datetime
 
@@ -57,41 +54,6 @@ def _format_multiple_symbols(symbols: list[str]) -> str:
             )
 
     return ",".join([symbol.upper() for symbol in symbols])
-
-
-def _get_df(url, params, session):
-    """ """
-    if session is None:
-        raise Exception("requests.Session cannot be None.")
-
-    response = session.get(
-        url=url,
-        params=params,
-        timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT),
-    )
-    if len(response.json()) == 1 and "Error Message" in response.json():
-        raise ValueError("Invalid API token response received.")
-
-    try:
-        df = pd.DataFrame(response.json())
-
-        # Historical dividends returns a weird json from FMP, this is for that.
-        if 'historical-price-full/stock_dividend/' in url:
-            df = pd.DataFrame(response.json()['historical'])
-
-    except Exception as e:
-        logging.error(f"DataFrame conversion exception: {e}")
-
-    else:
-        if len(df) == 0:
-            logging.error(
-                "DataFrame appears to be empty. "
-                f"Request ( url / params): {url} / {params}. "
-                "Returning None."
-            )
-            return None
-
-        return df
 
 
 def _validate_sec_filing_type(value):
