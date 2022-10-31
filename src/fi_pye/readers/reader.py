@@ -88,7 +88,7 @@ class Reader:
         """ """
         headers = headers or self.headers
         response = self.session.get(
-            url=url, params=params, headers=self.headers, timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT)
+            url=url, params=params, headers=headers, timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT)
         )
         if response.status_code == requests.codes.ok:
             return response

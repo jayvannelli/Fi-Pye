@@ -2,7 +2,15 @@ from .reader import Reader
 
 
 class MutualFunds(Reader):
-    """Mutual Funds. """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    Mutual funds.
+
+    Mutual funds
+    ------------
+    - Available dates, by symbol or CIK number
+    - Portfolio holdings, by symbol or CIK number
+    """
 
     def available_dates(self, symbol: str):
         """Query FMP / mutual-fund-holdings/portfolio-date / API.

@@ -3,9 +3,20 @@ from .reader import Reader
 
 class Fundamentals(Reader):
     """
-    This can be used to access FMP's endpoints related to stock fundamentals,
-    such as to get financial statements (cleaned or as reported) and financial
-    statement growth on both a quarterly and/or annual basis.
+    Query Financial Modeling Prep API endpoints related to
+    stock 'fundamentals'.
+
+    Fundamentals
+    ------------
+    - Income statement
+    - Income statement growth
+    - Income statement as reported
+    - Balance sheet
+    - Balance sheet growth
+    - Balance sheet as reported
+    - Cash flow
+    - Cash flow growth
+    - Cash flow as reported
 
     Examples
     --------

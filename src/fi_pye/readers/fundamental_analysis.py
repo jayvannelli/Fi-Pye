@@ -2,7 +2,25 @@ from .reader import Reader
 
 
 class FundamentalAnalysis(Reader):
-    """ """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    stock 'fundamental analysis'.
+
+    Fundamental Analysis
+    -------------------
+    - Financial ratios
+    - Enterprise value
+    - Financial scores
+    - Owner earnings
+    - Trailing twelve month (TTM) ratios
+    - Key metrics
+    - Key metrics TTM
+    - Financial growth
+    - Discounted cash flow (DCF) valuation
+    - Advanced DCF valuation
+    - Advanced levered DCF valuation
+    - Historical DCF (daily/quarterly/annual) valuation
+    """
     def financial_ratios(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / ratios / API.
 

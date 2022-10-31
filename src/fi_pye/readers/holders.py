@@ -2,7 +2,19 @@ from .reader import Reader
 
 
 class Holders(Reader):
-    """Holders of a given stock. """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    the 'holders' of a specific stock (by symbol).
+
+    Holders
+    -------
+    - Institutions
+    - Mutual funds
+    - Exchange traded funds (ETFs)
+
+    Examples
+    --------
+    """
     def institutional_holders(self, symbol: str):
         """Query FMP / institutional-holder / API.
 

@@ -14,8 +14,8 @@ class Calendars(Reader):
     split history. For historical calendars of a specific stock's
     events' like earnings and dividends, use StockCalendars.
 
-    Calendars Available
-    -------------------
+    Calendars
+    ---------
     - Earnings
     - Confirmed Earnings
     - Economic
