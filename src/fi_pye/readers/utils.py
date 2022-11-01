@@ -1,6 +1,6 @@
 import requests
+import pandas as pd
 
-from pandas import to_datetime
 
 CONNECTION_TIMEOUT = 5
 READ_TIMEOUT = 30
@@ -15,6 +15,7 @@ VALID_SEC_FILING_TYPES = [
 
 
 def _init_session(session=None):
+    """Initialize requests session. """
     if session is None:
         session = requests.Session()
     else:
@@ -38,7 +39,16 @@ def _construct_url(url_version, path):
 
 
 def _format_multiple_symbols(symbols: list[str]) -> str:
-    """ """
+    """
+    Used to format the 'symbols' param for a Price reader.
+
+    The 'symbols' param is used when multiple symbols are being
+    passed (for batch quotes / price history). This function
+    ensures that a list was passed and that each of the items
+    in the list is of type string. If those two requirements are
+    met, the response will be a comma separated string containing
+    an uppercase version of each symbol within the symbols list.
+    """
     if not isinstance(symbols, list):
         raise TypeError(
             f"Invalid symbols type passed: {symbols} is of type {type(symbols)}. "
@@ -57,7 +67,10 @@ def _format_multiple_symbols(symbols: list[str]) -> str:
 
 
 def _validate_sec_filing_type(value):
-    """ """
+    """
+    Validates that the SEC form passed to a SEC reader is a
+    valid form that FMP can return data for.
+    """
     _valid_values = VALID_SEC_FILING_TYPES
     if value not in _valid_values:
         raise ValueError(
@@ -69,10 +82,22 @@ def _validate_sec_filing_type(value):
 
 
 def _validate_calendar_dates(start: str, end: str):
-    """ """
+    """Validates 'from_date' and 'to_date' args passed to a Calendar reader method."""
+    if not isinstance(start, str):
+        raise TypeError(
+            f"Invalid from date: {start} with type: {type(start)}. "
+            "from date must be of type string (str) and in 'YYYY-MM-DD' format. "
+        )
+
+    if not isinstance(end, str):
+        raise TypeError(
+            f"Invalid from date: {end} with type: {type(end)}. "
+            "from date must be of type string (str) and in 'YYYY-MM-DD' format. "
+        )
+
     try:
-        start = to_datetime(start)
-        end = to_datetime(end)
+        start = pd.to_datetime(start)
+        end = pd.to_datetime(end)
     except (TypeError, ValueError):
         raise ValueError("Invalid date format.")
 
@@ -89,3 +114,60 @@ def _validate_calendar_dates(start: str, end: str):
 
     else:
         return start, end
+
+
+def _validate_price_dates(start: str, end: str):
+    """Validates 'from_date' and 'to_date' args passed to a Price reader method."""
+    if not isinstance(start, str):
+        raise TypeError(
+            f"Invalid from date: {start} with type: {type(start)}. "
+            "from date must be of type string (str) and in 'YYYY-MM-DD' format. "
+        )
+
+    if not isinstance(end, str):
+        raise TypeError(
+            f"Invalid from date: {end} with type: {type(end)}. "
+            "from date must be of type string (str) and in 'YYYY-MM-DD' format. "
+        )
+
+    try:
+        start = pd.to_datetime(start)
+        end = pd.to_datetime(end)
+    except (TypeError, ValueError):
+        raise ValueError("Invalid date format.")
+
+    if start > end:
+        raise ValueError("start date must be earlier than end date.")
+
+    return start, end
+
+
+def _clean_historical_daily_price(data):
+    """
+    The historical daily price response from FMP is not the normal
+    response, which is a list of dictionaries. This function is
+    used to take the normal response from this endpoint and
+    fix the formatting so the returned DataFrame contains only the
+    intended data in a cleaner way.
+
+    Parameters
+    ---------
+    data :
+        Original response from the historical daily price endpoint.
+
+    Return
+    ------
+    object : pandas.DataFrame
+        pandas.Dataframe
+    """
+    columns = [
+        "open", "high", "low", "close", "adjClose", "volume",
+        "unadjustedVolume", "change", "changePercent", "vwap", "label",
+        "changeOverTime"
+    ]
+    df = pd.DataFrame(index=[i['date'] for i in data['historical']])
+
+    for c in columns:
+        df[c] = [h[c] for h in data['historical']]
+
+    return df
