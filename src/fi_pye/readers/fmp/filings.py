@@ -1,11 +1,11 @@
-from .reader import Reader
+from .reader import FmpReader
 from .utils import (
     _validate_sec_filing_type,
     VALID_SEC_FILING_TYPES,
 )
 
 
-class Filings(Reader):
+class Filings(FmpReader):
     """SEC filings. """
 
     @property

@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Sentiment(Reader):
+class Sentiment(FmpReader):
     """ """
     def stock_social_sentiment(self, symbol: str, page: int = 0):
         """Query FMP / social-sentiment / API.

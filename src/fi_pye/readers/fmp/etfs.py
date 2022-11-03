@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class ExchangeTradedFunds(Reader):
+class ExchangeTradedFunds(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related
     to Exchange traded Funds (ETFs).

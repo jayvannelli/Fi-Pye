@@ -2,7 +2,7 @@ import logging
 import pandas as pd
 import requests
 
-from .utils import (
+from fi_pye.readers.fmp.utils import (
     CONNECTION_TIMEOUT,
     READ_TIMEOUT,
     _construct_url,
@@ -10,8 +10,10 @@ from .utils import (
 )
 from typing import Union
 
+from fi_pye.readers.base import BaseReader
 
-class Reader:
+
+class FmpReader(BaseReader):
     __slots__ = "apikey", "session", "headers"
 
     def __init__(self, apikey: str, session: requests.Session | None = None):

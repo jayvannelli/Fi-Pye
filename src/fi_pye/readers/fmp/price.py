@@ -1,14 +1,14 @@
 from typing import List
 
-from .utils import (
+from fi_pye.readers.fmp.utils import (
     _format_multiple_symbols,
     _clean_historical_daily_price,
     _validate_price_dates,
 )
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Price(Reader):
+class Price(FmpReader):
     """ """
 
     def price(self, symbol: str):

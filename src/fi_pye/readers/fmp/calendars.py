@@ -1,8 +1,8 @@
-from .reader import Reader
+from .reader import FmpReader
 from .utils import _validate_calendar_dates
 
 
-class Calendars(Reader):
+class Calendars(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related
     to calendars.
@@ -376,7 +376,7 @@ class Calendars(Reader):
         )
 
 
-class StockCalendars(Reader):
+class StockCalendars(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related
     to stock calendars/events.

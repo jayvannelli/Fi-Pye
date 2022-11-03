@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class News(Reader):
+class News(FmpReader):
     """ """
     def latest_general_news(self, limit: int = 25):
         """Query FMP / general_news /  API.

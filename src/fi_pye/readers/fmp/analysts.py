@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Analysts(Reader):
+class Analysts(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related
     to analysts & analyst actions on stocks.

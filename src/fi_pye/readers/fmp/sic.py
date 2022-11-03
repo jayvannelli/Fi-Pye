@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class SIC(Reader):
+class SIC(FmpReader):
     """
     'Standard Industrial Classification (SIC) codes are four-digit
     numerical codes that categorize the industries that companies

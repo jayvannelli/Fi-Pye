@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Ownership(Reader):
+class Ownership(FmpReader):
     """Stock institutional ownership. """
     def institutional_ownership(self, symbol: str):
         """Query FMP / institutional-ownership/symbol-ownership / API.

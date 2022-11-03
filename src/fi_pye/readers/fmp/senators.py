@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Senators(Reader):
+class Senators(FmpReader):
     """ """
     def senate_trading(self, symbol: str):
         """Query FMP / senate-trading / API.

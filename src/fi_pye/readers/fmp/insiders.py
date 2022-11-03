@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Insiders(Reader):
+class Insiders(FmpReader):
     """
     "Insiders" are people who may have valuable private information
     about a company according to their states. In terms of securities

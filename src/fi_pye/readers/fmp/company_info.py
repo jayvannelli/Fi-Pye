@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class CompanyInformation(Reader):
+class CompanyInformation(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related to
     basic company information about a stock (given its symbol).

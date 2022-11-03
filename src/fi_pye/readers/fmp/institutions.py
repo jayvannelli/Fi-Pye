@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Institutions(Reader):
+class Institutions(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related to
     institutional investors.

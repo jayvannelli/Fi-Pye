@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Symbols(Reader):
+class Symbols(FmpReader):
     """
     This class is used to obtain a list of stock, index, ETF, commodity,
     FX-pair, and cryptocurrency symbols available for quotes and historical

@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class MutualFunds(Reader):
+class MutualFunds(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related to
     Mutual funds.

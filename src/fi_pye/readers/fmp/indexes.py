@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Indexes(Reader):
+class Indexes(FmpReader):
     """
     Obtain current and historical constituents within
     a given market indexes.

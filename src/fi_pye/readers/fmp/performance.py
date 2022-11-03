@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Performance(Reader):
+class Performance(FmpReader):
     """ """
     @property
     def biggest_gainers(self):

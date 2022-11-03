@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class PrivateCompanies(Reader):
+class PrivateCompanies(FmpReader):
     """ """
     def crowdfunding_offerings(self, company: str):
         """Query FMP / crowdfunding-offerings/search / API.

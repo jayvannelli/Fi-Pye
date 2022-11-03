@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class RSS(Reader):
+class RSS(FmpReader):
     """
     This class is used to obtain data from the RSS feeds available from
     FMPs API.

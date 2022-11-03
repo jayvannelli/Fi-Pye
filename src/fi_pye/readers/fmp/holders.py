@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Holders(Reader):
+class Holders(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related to
     the 'holders' of a specific stock (by symbol).

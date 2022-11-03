@@ -1,7 +1,7 @@
-from .reader import Reader
+from .reader import FmpReader
 
 
-class Quotes(Reader):
+class Quotes(FmpReader):
     """
     This class is used to obtain the latest real-time prices from stocks
     within the New York Stock Exchange (NYSE), Toronto Stock Exchange (TSX),
