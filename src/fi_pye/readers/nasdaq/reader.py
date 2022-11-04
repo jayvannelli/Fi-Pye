@@ -14,7 +14,7 @@ from fi_pye.readers.base import BaseReader
 class NasdaqReader(BaseReader):
     __slots__ = "api_key", "limit", "session", "headers"
 
-    def __init__(self, api_key: str, default_limit: int = 25, session: requests.Session | None = None):
+    def __init__(self, api_key: str, session: requests.Session | None = None):
         """
         Create instantiation of reader, which is used to obtain data
         from FMP without needing to input an API key with each request.
@@ -27,19 +27,15 @@ class NasdaqReader(BaseReader):
             requests Session.
         """
         if not api_key or not isinstance(api_key, str):
-            raise ValueError("IEX api key needed.")
-
-        if not isinstance(default_limit, int):
-            raise TypeError("limit must be of type: int. ")
+            raise ValueError("Nasdaq api key needed.")
 
         self.api_key = api_key
-        self.limit = default_limit
         self.session = _init_session(session)  # Initialize session.
         self.headers = None
 
     def close(self):
         """Close requests session."""
-        self.session.close()
+        return self.session.close()
 
     def data(self, path: str, params: dict[str, Union[str, int]]):
         """
@@ -68,7 +64,6 @@ class NasdaqReader(BaseReader):
         out_json = self._get_response(url=url, params=params).json()["dataset"]
 
         try:
-            #out = pd.DataFrame(out_json)
             out = pd.DataFrame(
                 data=out_json["data"],
                 columns=out_json["column_names"]
