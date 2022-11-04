@@ -17,7 +17,7 @@ class NasdaqReader(BaseReader):
     def __init__(self, api_key: str, session: requests.Session | None = None):
         """
         Create instantiation of reader, which is used to obtain data
-        from FMP without needing to input an API key with each request.
+        from Nasdaq without needing to input an API key with each request.
 
         Parameters
         ----------
@@ -35,11 +35,11 @@ class NasdaqReader(BaseReader):
 
     def close(self):
         """Close requests session."""
-        return self.session.close()
+        self.session.close()
 
     def data(self, path: str, params: dict[str, Union[str, int]]):
         """
-        Function to obtain data from the IEX API endpoint, given the
+        Function to obtain data from Nasdaq API endpoint, given the
         specific endpoint path and parameters used in request.
 
         Parameters

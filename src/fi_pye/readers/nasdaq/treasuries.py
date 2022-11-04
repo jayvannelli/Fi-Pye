@@ -34,9 +34,10 @@ class Treasuries(NasdaqReader):
             },
         )
 
-    def treasury_yield_curve_rate(self, treasury: str, limit: int = 25):
+    def treasury_yield(self, treasury: str, limit: int = 25):
         """Query Nasdaq / USTREASURY/YIELD / API.
 
+        Return treasury yield curve rate (by duration).
         """
         valid_values = [
             "1mo", "2mo", "3mo", "6mo", "1yr", "3yr",
@@ -47,6 +48,25 @@ class Treasuries(NasdaqReader):
 
         return self.data(
             path="USTREASURY/YIELD",
+            params={
+                "column_index": valid_values.index(treasury)+1,
+                "rows": _validate_limit(limit),
+                "api_key": self.api_key
+            },
+        )
+
+    def treasury_real_yield(self, treasury: str, limit: int = 25):
+        """Query Nasdaq / USTREASURY/REALYIELD / API.
+
+        """
+        valid_values = [
+            "5yr", "7yr", "10yr", "20yr", "30yr"
+        ]
+        if treasury not in valid_values or not isinstance(treasury, str):
+            raise ValueError(f"Invalid treasury: {treasury}. Valid treasury values include: {valid_values}. ")
+
+        return self.data(
+            path="USTREASURY/REALYIELD",
             params={
                 "column_index": valid_values.index(treasury)+1,
                 "rows": _validate_limit(limit),
@@ -129,6 +149,21 @@ class Treasuries(NasdaqReader):
             },
         )
 
+    def marketable_borrowing(self, type: str, limit: int = 25):
+        """Query Nasdaq / USTREASURY/YIELD / API.
+
+        Return Treasury Yield Curve Rates for the last x days.
+        """
+        valid_values = ["bills", "2-5", "5-10", ">10", "5-10 tips", ">10 tips", "buybacks"]
+        return self.data(
+            path="USTREASURY/TMBOR",
+            params={
+                "column_index": valid_values.index(type)+1,
+                "rows": _validate_limit(limit),
+                "api_key": self.api_key
+            },
+        )
+
     def net_marketable_borrowing(self, limit: int = 25):
         """Query Nasdaq / USTREASURY/YIELD / API.
 
@@ -142,7 +177,7 @@ class Treasuries(NasdaqReader):
             },
         )
 
-    def net_nonmarketable_borrowing(self, limit: int = 25):
+    def net_non_marketable_borrowing(self, limit: int = 25):
         """Query Nasdaq / USTREASURY/TNMBOR / API.
 
         Return Treasury Yield Curve Rates for the last x days.
@@ -150,6 +185,21 @@ class Treasuries(NasdaqReader):
         return self.data(
             path="USTREASURY/TNMBOR",
             params={
+                "rows": _validate_limit(limit),
+                "api_key": self.api_key
+            },
+        )
+
+    def non_marketable_borrowing(self, type: str, limit: int = 25):
+        """Query Nasdaq / USTREASURY/YIELD / API.
+
+        Return Treasury Yield Curve Rates for the last x days.
+        """
+        valid_values = ["foreign series", "slgs", "savings bond", "total"]
+        return self.data(
+            path="USTREASURY/TNMBOR",
+            params={
+                "column_index": valid_values.index(type)+1,
                 "rows": _validate_limit(limit),
                 "api_key": self.api_key
             },
@@ -188,24 +238,6 @@ class Treasuries(NasdaqReader):
             path="USTREASURY/BRDNM",
             params={
                 "rows": _validate_limit(limit),
-                "api_key": self.api_key
-            },
-        )
-
-    def marketable_issuance(self, issuance: str, limit: int = 25):
-        """Query Nasdaq / USTREASURY/YIELD / API.
-
-        Return Treasury Yield Curve Rates for the last x days.
-        """
-        valid_values = ["bills", "2-3", "4-9", "10-15", "bonds", "tips"]
-        if issuance not in valid_values:
-            raise ValueError(f"Invalid issuance: {issuance}. Valid issuance values are: {valid_values}. ")
-
-        return self.data(
-            path="USTREASURY/BRDNM",
-            params={
-                "rows": _validate_limit(limit),
-                "column_index": valid_values.index(issuance)+1,
                 "api_key": self.api_key
             },
         )
