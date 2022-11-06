@@ -4,25 +4,29 @@
 
    * [About the project](#about-the-project)
    * [Getting Started](#getting-started)
+     * [Dev docs](#developer-documentation)
      * [Installation](#installation)
      * [Usage](#usage)
         * [Readers](#readers)
           * [Example #1](#example-1)
           * [Example #2](#example-2)
 
-## About The Project
+# About The Project
 
----
-Fi-Pye is a library written in python for obtaining financial
-data from Financial Modeling Prep. Since data is obtained from FMP's API,
-you must have an API token in order to use this library.
+Fi-Pye is a python library for obtaining financial data from 
+various sources, like Financial Modeling Prep, Nasdaq Data Link, and many more.
 
 # Getting Started
+FMP and Nasdaq both require API tokens to obtain data from them, so you must
+obtain those keys prior to using their functionality in this library.
 
-Since you must have an API token from FMP to use Fi-Pye, if you don't have one
-already you can check out their developer documentation [here](https://site.financialmodelingprep.com/developer/docs/):
+### Developer Documentation
+Developer documentation for respective data provider.
 
-### Installation
+- Financial Modeling Prep (FMP) : [link](https://site.financialmodelingprep.com/developer/docs/)
+- Nasdaq Data Link : [link](https://data.nasdaq.com/tools/api)
+
+## Installation
 ...
 
 # Usage
