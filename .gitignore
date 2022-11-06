@@ -8,7 +8,6 @@ src/fi_pye.egg-info/
 src/fi_pye/comparisons/
 src/fi_pye/deep_dive/
 src/fi_pye/interfaces/
-src/fi_pye/readers/nasdaq/
 
 # Environment stuff.
 venv/

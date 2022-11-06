@@ -38,9 +38,15 @@ interface. Also, readers are grouped together based on where the data comes from
 
 ### Example #1
 To access the Fundamentals reader, which is one of the Financial Modeling Prep (FMP) 
-readers, you must use the following import statement.
+readers, do the following:
 ```python
 from fi_pye.readers.fmp import Fundamentals
+
+fundamentals = Fundamentals(apikey='123abc')
+
+aapl_q_inc_stmt = fundamentals.income_statement("AAPL", period="quarter")
+msft_a_bal_sheet = fundamentals.balance_sheet("MSFT")
+tsla_q_cash_flow = fundamentals.cash_flow("TSLA", period="quarter", limit=5)
 ```
 
 ### Example #2
