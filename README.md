@@ -48,16 +48,17 @@ from fi_pye.readers.fmp import Fundamentals
 
 fundamentals = Fundamentals(apikey='123abc')
 
-aapl_q_inc_stmt = fundamentals.income_statement("AAPL", period="quarter")
-msft_a_bal_sheet = fundamentals.balance_sheet("MSFT")
-tsla_q_cash_flow = fundamentals.cash_flow("TSLA", period="quarter", limit=5)
+data = fundamentals.cash_flow("TSLA", period="quarter", limit=5)
 ```
 
 ### Example #2
-To access the USTreasury reader, which is one of the Nasdaq readers, you must use the 
-following import statement.
+To access the USTreasury reader, which is one of the Nasdaq readers, do the following:
 ```python
 from fi_pye.readers.nasdaq import USTreasury
+
+ustreasury = USTreasury(api_key='123abc')
+
+data = ustreasury.real_yield_curve(limit=200)
 ```
 
 
