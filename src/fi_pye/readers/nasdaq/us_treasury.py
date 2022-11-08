@@ -34,7 +34,7 @@ class USTreasury(NasdaqReader):
             path="USTREASURY/BILLRATES",
             params={
                 "rows": _validate_limit(limit),
-                "api_key": self.api_key
+                "api_key": self.apikey
             },
         )
 
@@ -58,7 +58,7 @@ class USTreasury(NasdaqReader):
             path="USTREASURY/YIELD",
             params={
                 "rows": _validate_limit(limit),
-                "api_key": self.api_key
+                "api_key": self.apikey
             },
         )
 
@@ -90,7 +90,7 @@ class USTreasury(NasdaqReader):
             path="USTREASURY/REALYIELD",
             params={
                 "rows": _validate_limit(limit),
-                "api_key": self.api_key
+                "api_key": self.apikey
             },
         )
 
@@ -130,7 +130,7 @@ class USTreasury(NasdaqReader):
             params={
                 "column_index": valid_values.index(duration)+1,
                 "rows": _validate_limit(limit),
-                "api_key": self.api_key
+                "api_key": self.apikey
             },
         )
 
@@ -164,6 +164,6 @@ class USTreasury(NasdaqReader):
             params={
                 "column_index": valid_values.index(duration)+1,
                 "rows": _validate_limit(limit),
-                "api_key": self.api_key
+                "api_key": self.apikey
             },
         )

@@ -12,24 +12,24 @@ from fi_pye.readers.base import BaseReader
 
 
 class NasdaqReader(BaseReader):
-    __slots__ = "api_key", "limit", "session", "headers"
+    __slots__ = "apikey", "limit", "session", "headers"
 
-    def __init__(self, api_key: str, session: requests.Session | None = None):
+    def __init__(self, apikey: str, session: requests.Session | None = None):
         """
         Create instantiation of reader, which is used to obtain data
         from Nasdaq without needing to input an API key with each request.
 
         Parameters
         ----------
-        api_key :
+        apikey :
             Nasdaq API token.
         session : default = None
             requests Session.
         """
-        if not api_key or not isinstance(api_key, str):
+        if not apikey or not isinstance(apikey, str):
             raise ValueError("Nasdaq api key needed.")
 
-        self.api_key = api_key
+        self.apikey = apikey
         self.session = _init_session(session)  # Initialize session.
         self.headers = None
 
