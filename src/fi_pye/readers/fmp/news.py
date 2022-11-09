@@ -2,7 +2,10 @@ from .reader import FmpReader
 
 
 class News(FmpReader):
-    """ """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    news.
+    """
     def latest_general_news(self, limit: int = 25):
         """Query FMP / general_news /  API.
 

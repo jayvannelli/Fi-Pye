@@ -2,7 +2,15 @@ from .reader import FmpReader
 
 
 class PrivateCompanies(FmpReader):
-    """ """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    private companies.
+
+    Private Companies
+    -----------------
+    - Crowdfunding offerings (by company name or CIK number)
+    - Equity offerings (by company name or CIK number)
+    """
     def crowdfunding_offerings(self, company: str):
         """Query FMP / crowdfunding-offerings/search / API.
 

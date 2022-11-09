@@ -2,7 +2,10 @@ from .reader import FmpReader
 
 
 class Performance(FmpReader):
-    """ """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    performance.
+    """
     @property
     def biggest_gainers(self):
         """Query FMP / stock_market/gainers / API.

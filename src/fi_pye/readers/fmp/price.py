@@ -9,7 +9,10 @@ from .reader import FmpReader
 
 
 class Price(FmpReader):
-    """ """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    price.
+    """
 
     def price(self, symbol: str):
         """Query FMP / quote /  API.

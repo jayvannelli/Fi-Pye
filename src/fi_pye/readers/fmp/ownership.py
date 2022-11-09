@@ -2,7 +2,16 @@ from .reader import FmpReader
 
 
 class Ownership(FmpReader):
-    """Stock institutional ownership. """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    stock ownership.
+
+    Ownership
+    ---------
+    - Institutional
+    - By holders
+    - By position size (in %) of portfolio
+    """
     def institutional_ownership(self, symbol: str):
         """Query FMP / institutional-ownership/symbol-ownership / API.
 
