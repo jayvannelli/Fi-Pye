@@ -9,6 +9,15 @@ def _validate_limit(limit):
     return limit
 
 
+def _validate_timeframe(value: str):
+    """ """
+    valid_values = ["month", "year"]
+    if value not in valid_values:
+        raise ValueError(f"Invalid timeframe: {value}. Valid timeframes include: {valid_values}. ")
+
+    return value
+
+
 def _validate_dates(start, end):
     """ """
     try:
