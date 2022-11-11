@@ -9,9 +9,13 @@ def _validate_limit(limit):
     return limit
 
 
-def _validate_timeframe(value: str):
+def _validate_timeframe(value: str, quarterly: bool = False):
     """ """
-    valid_values = ["month", "year"]
+    if quarterly:
+        valid_values = ["quarter", "year"]
+    else:
+        valid_values = ["month", "year"]
+
     if value not in valid_values:
         raise ValueError(f"Invalid timeframe: {value}. Valid timeframes include: {valid_values}. ")
 
