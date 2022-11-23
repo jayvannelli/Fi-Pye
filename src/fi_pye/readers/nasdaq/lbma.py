@@ -31,6 +31,16 @@ class LBMA(NasdaqReader):
         is then set by collating bids and offers until the supply and demand are matched.
         At this point the price is announced as the 'Fixed' price for gold and all business
         is conducted on the basis of that price.
+
+        Parameters
+        ----------
+        limit : default = 25
+            Number of rows to return
+
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             base="datasets",
@@ -55,6 +65,16 @@ class LBMA(NasdaqReader):
         is then set by collating bids and offers until the supply and demand are matched.
         At this point the price is announced as the 'Fixed' price for silver and all business
         is conducted on the basis of that price.
+
+        Parameters
+        ----------
+        limit : default = 25
+            Number of rows to return
+
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             base="datasets",
@@ -74,6 +94,16 @@ class LBMA(NasdaqReader):
         LIBOR difference included. The Gold Forward Offered Rate is an international standard rate
         at which dealers will lend gold on a swap basis against US dollars, providing the
         foundation for the pricing of gold swaps, forwards and leases.
+
+        Parameters
+        ----------
+        limit : default = 25
+            Number of rows to return
+
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             base="datasets",
@@ -95,6 +125,16 @@ class LBMA(NasdaqReader):
         and the price is said to be `fixed`. Orders executed at the fixings are conducted as
         principal-to-principal transactions between the client and the dealer through whom the order
         is placed.
+
+        Parameters
+        ----------
+        limit : default = 25
+            Number of rows to return
+
+        Return
+        -------
+        object : pandas.DataFrame
+            pandas.Dataframe
         """
         return self.data(
             base="datasets",
