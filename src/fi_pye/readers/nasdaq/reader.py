@@ -12,7 +12,7 @@ from fi_pye.readers.base import BaseReader
 
 
 class NasdaqReader(BaseReader):
-    __slots__ = "apikey", "limit", "session", "headers"
+    __slots__ = "apikey", "session", "headers"
 
     def __init__(self, apikey: str, session: requests.Session | None = None):
         """
