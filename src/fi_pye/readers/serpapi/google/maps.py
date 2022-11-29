@@ -3,13 +3,7 @@ from fi_pye.readers.serpapi.reader import SerpApiReader
 
 class GMaps(SerpApiReader):
     """ """
-    def local_results(
-            self,
-            query: str,
-            lat: float,
-            lon: float,
-            zoom: int = 14,
-    ):
+    def local_results(self, query: str, lat: float, lon: float, zoom: int = 14):
         """
 
         zoom :
@@ -26,10 +20,8 @@ class GMaps(SerpApiReader):
             key='local_results',
         )
 
-    def photos(self, data_id: str,):
-        """
-
-        """
+    def photos(self, data_id: str):
+        """ """
         return self.data(
             params={
                 "engine": "google_maps_photos",
@@ -39,10 +31,8 @@ class GMaps(SerpApiReader):
             key='photos',
         )
 
-    def reviews(self, data_id: str,):
-        """
-
-        """
+    def reviews(self, data_id: str):
+        """ """
         return self.data(
             params={
                 "engine": "google_maps_reviews",
