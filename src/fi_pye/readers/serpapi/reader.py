@@ -59,7 +59,7 @@ class SerpApiReader(BaseReader):
         except KeyError as key_error:
             logging.error(f"Key error: {key_error}. ")
         else:
-            return d
+            return pd.DataFrame(d)
         finally:
             self.close()
 
