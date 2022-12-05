@@ -2,7 +2,10 @@ from .reader import FmpReader
 
 
 class Sentiment(FmpReader):
-    """ """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    sentiment.
+    """
     def stock_social_sentiment(self, symbol: str, page: int = 0):
         """Query FMP / social-sentiment / API.
 

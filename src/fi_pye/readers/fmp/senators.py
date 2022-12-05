@@ -2,7 +2,10 @@ from .reader import FmpReader
 
 
 class Senators(FmpReader):
-    """ """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    senators.
+    """
     def senate_trading(self, symbol: str):
         """Query FMP / senate-trading / API.
 

@@ -83,18 +83,6 @@ def _validate_sec_filing_type(value):
 
 def _validate_calendar_dates(start: str, end: str):
     """Validates 'from_date' and 'to_date' args passed to a Calendar reader method."""
-    if not isinstance(start, str):
-        raise TypeError(
-            f"Invalid from date: {start} with type: {type(start)}. "
-            "from date must be of type string (str) and in 'YYYY-MM-DD' format. "
-        )
-
-    if not isinstance(end, str):
-        raise TypeError(
-            f"Invalid from date: {end} with type: {type(end)}. "
-            "from date must be of type string (str) and in 'YYYY-MM-DD' format. "
-        )
-
     try:
         start = pd.to_datetime(start)
         end = pd.to_datetime(end)

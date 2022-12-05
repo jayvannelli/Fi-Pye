@@ -3,20 +3,21 @@ from .reader import FmpReader
 
 class RSS(FmpReader):
     """
-    This class is used to obtain data from the RSS feeds available from
-    FMPs API.
+    Query Financial Modeling Prep API endpoints related to
+    RSS feeds.
 
-    Available RSS feeds include:
-        - Price targets.
-        - Mergers and acquisitions.
-        - Insider trading.
-        - Senate trading.
-        - Senate disclosures.
-        - Form 8-K's.
-        - Latest SEC documents.
+    RSS
+    ---
+    - Institutional ownership
+    - Price targets
+    - Mergers and acquisitions
+    - Insider trading
+    - Senate trading
+    - Senate disclosures
+    - Form 8-K's
+    - SEC filings
     """
-
-    def institutional_holder_rss(self, page: int = 0):
+    def institutional_ownership(self, page: int = 0):
         """Query FMP / institutional-ownership/rss_feed / API.
 
         Obtain institutional ownership live rss feed.
@@ -40,7 +41,7 @@ class RSS(FmpReader):
             },
         )
 
-    def price_target_rss(self, page: int = 0):
+    def price_targets(self, page: int = 0):
         """Query FMP / price-target-rss-feed / API.
 
         Obtain price targets live rss feed.
@@ -64,7 +65,7 @@ class RSS(FmpReader):
             },
         )
 
-    def mergers_and_acquisition_rss(self, page: int = 0):
+    def mergers_and_acquisitions(self, page: int = 0):
         """Query FMP / mergers-acquisitions-rss-feed / API.
 
         Obtain mergers and acquisitions live rss feed.
@@ -88,7 +89,7 @@ class RSS(FmpReader):
             },
         )
 
-    def insider_trading_rss(self, page: int = 0):
+    def insider_trades(self, page: int = 0):
         """Query FMP / insider-trading-rss-feed / API.
 
         Obtain insider trading live rss feed.
@@ -112,7 +113,7 @@ class RSS(FmpReader):
             },
         )
 
-    def senate_trading_rss(self, page: int = 0):
+    def senate_trades(self, page: int = 0):
         """Query FMP / senate-trading-rss-feed / API.
 
         Obtain senate trading live rss feed.
@@ -136,7 +137,7 @@ class RSS(FmpReader):
             },
         )
 
-    def senate_disclosure_rss(self, page: int = 0):
+    def senate_disclosures(self, page: int = 0):
         """Query FMP / senate-disclosure-rss-feed / API.
 
         Obtain senate disclosure live rss feed.
@@ -160,7 +161,7 @@ class RSS(FmpReader):
             },
         )
 
-    def eightk_rss(self, page: int = 0, with_financials: bool = True):
+    def eightk_filings(self, page: int = 0, with_financials: bool = True):
         """Query FMP / rss_feed_8k / API.
 
         Obtain 8K (Important Events) live rss feed.
@@ -192,7 +193,7 @@ class RSS(FmpReader):
             },
         )
 
-    def sec_rss(self, page: int = 0):
+    def all_sec_filings(self, page: int = 0):
         """Query FMP / rss_feed_8k / API.
 
         Obtain 8K (Important Events) live rss feed.
@@ -216,7 +217,7 @@ class RSS(FmpReader):
             },
         )
 
-    def crowdfunding_offerings_rss(self, page: int = 0):
+    def crowdfunding_offerings(self, page: int = 0):
         """Query FMP / crowdfunding-offerings-rss-feed / API.
 
         Obtain private company crowdfunding offerings live rss feed.
@@ -240,7 +241,7 @@ class RSS(FmpReader):
             },
         )
 
-    def equity_fundraising_offerings_rss(self, page: int = 0):
+    def equity_fundraising_offerings(self, page: int = 0):
         """Query FMP / fundraising-rss-feed / API.
 
         Obtain private company equity fundraising offerings live rss feed.
