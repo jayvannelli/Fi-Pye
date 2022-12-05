@@ -3,13 +3,14 @@ from .reader import FmpReader
 
 class Indexes(FmpReader):
     """
-    Obtain current and historical constituents within
-    a given market indexes.
+    Query Financial Modeling Prep API endpoints related to
+    market indexes.
 
-    Market indexes available:
-        - S&P 500
-        - Nasdaq
-        - Dow Jones
+    Indexes
+    -------
+    - S&P 500
+    - Nasdaq
+    - Dow Jones
 
     Examples
     --------

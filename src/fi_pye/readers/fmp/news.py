@@ -5,8 +5,14 @@ class News(FmpReader):
     """
     Query Financial Modeling Prep API endpoints related to
     news.
+
+    News
+    ----
+    - General news (general = news across all industries)
+    - Industry specific news (stocks, cryptos & forex)
+    - Single symbol news (symbol = one stock, crypto or forex ticker symbol)
     """
-    def latest_general_news(self, limit: int = 25):
+    def general(self, limit: int = 25):
         """Query FMP / general_news /  API.
 
         Obtain most recent general news.
@@ -30,7 +36,7 @@ class News(FmpReader):
             },
         )
 
-    def latest_stock_news(self, limit: int = 25):
+    def stocks(self, limit: int = 25):
         """Query FMP / stock_news /  API.
 
         Obtain most recent stocks news (all stocks).
@@ -54,7 +60,7 @@ class News(FmpReader):
             },
         )
 
-    def latest_crypto_news(self, limit: int = 25):
+    def cryptos(self, limit: int = 25):
         """Query FMP / crypto_news /  API.
 
         Obtain most recent cryptocurrency news (all cryptos).
@@ -78,7 +84,7 @@ class News(FmpReader):
             },
         )
 
-    def latest_forex_news(self, limit: int = 25):
+    def forex(self, limit: int = 25):
         """Query FMP / forex_news /  API.
 
         Obtain most recent forex news (all forexes).
@@ -102,7 +108,7 @@ class News(FmpReader):
             },
         )
 
-    def stock_news(self, symbol: str, limit: int = 25):
+    def single_stock(self, symbol: str, limit: int = 25):
         """Query FMP / stock_news /  API.
 
         Obtain most recent news for a specific stock (by symbol).
@@ -155,7 +161,7 @@ class News(FmpReader):
             },
         )
 
-    def crypto_news(self, symbol: str, limit: int = 25):
+    def single_crypto(self, symbol: str, limit: int = 25):
         """Query FMP / crypto_news /  API.
 
         Obtain most recent news for a specific cryptocurrency (by symbol).
@@ -182,7 +188,7 @@ class News(FmpReader):
             },
         )
 
-    def forex_news(self, symbol: str, limit: int = 25):
+    def single_forex(self, symbol: str, limit: int = 25):
         """Query FMP / forex_news /  API.
 
         Obtain most recent news for a specific forex (by symbol).
