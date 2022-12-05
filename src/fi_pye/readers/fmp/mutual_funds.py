@@ -11,7 +11,6 @@ class MutualFunds(FmpReader):
     - Available dates, by symbol or CIK number
     - Portfolio holdings, by symbol or CIK number
     """
-
     def available_dates(self, symbol: str):
         """Query FMP / mutual-fund-holdings/portfolio-date / API.
 

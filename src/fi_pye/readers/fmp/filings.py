@@ -6,10 +6,18 @@ from .utils import (
 
 
 class Filings(FmpReader):
-    """SEC filings. """
+    """
+    Query Financial Modeling Prep API endpoints related to
+    stock SEC filings.
 
+    Filings
+    -------
+    - List of all types of SEC filings
+    - All SEC filings for stock (by symbol)
+    - Specific SEC filing for stock (by symbol)
+    """
     @property
-    def sec_filing_types(self):
+    def filing_types(self):
         """Get filings types accepted by method 'specific_sec_filing'.
 
         This returns a list of valid 'type' values (type of SEC form)
@@ -20,7 +28,7 @@ class Filings(FmpReader):
         """
         return VALID_SEC_FILING_TYPES
 
-    def all_filings(self, symbol: str, page: int = 0):
+    def all_stock_filings(self, symbol: str, page: int = 0):
         """Query FMP / sec_filings / API.
 
         Return all types of SEC filing for the given company.
@@ -46,7 +54,7 @@ class Filings(FmpReader):
             }
         )
 
-    def specific_sec_filing(self, symbol: str, type: str, page: int = 0):
+    def specific_stock_filing(self, symbol: str, type: str, page: int = 0):
         """Query FMP / sec_filings / API.
 
         Return a specific type of SEC filing for the given company.
