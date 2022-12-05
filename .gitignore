@@ -4,10 +4,5 @@ src/fi_pye.egg-info/
 # Streamlit stuff.
 .streamlit/
 
-# Under development.
-src/fi_pye/comparisons/
-src/fi_pye/deep_dive/
-src/fi_pye/interfaces/
-
 # Environment stuff.
 venv/

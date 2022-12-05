@@ -27,7 +27,12 @@ Developer documentation for respective data provider.
 - Nasdaq Data Link : [link](https://data.nasdaq.com/tools/api)
 
 ## Installation
-...
+Clone this GitHub repo and install the package through pip like so
+```commandline
+pip install -e .
+```
+
+The '-e' installs the package in editable mode and is not required.
 
 # Usage
 Currently, the fmp readers are close to being fully documented and cleaned up,
@@ -56,9 +61,9 @@ To access the USTreasury reader, which is one of the Nasdaq readers, do the foll
 ```python
 from fi_pye.readers.nasdaq import USTreasury
 
-ustreasury = USTreasury(api_key='123abc')
+us_treasury = USTreasury(apikey='123abc')
 
-data = ustreasury.real_yield_curve(limit=200)
+data = us_treasury.real_yield_curve(limit=200)
 ```
 
 
