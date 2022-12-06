@@ -15,14 +15,12 @@ class SerpApiReader(BaseReader):
     __slots__ = "apikey", "session", "headers"
 
     def __init__(self, apikey: str, session: requests.Session | None = None):
-        """
-        Create instantiation of reader, which is used to obtain data
-        from Nasdaq without needing to input an API key with each request.
+        """Create instantiation of reader used to obtain data from SerpApi API.
 
         Parameters
         ----------
         apikey :
-            Nasdaq API token.
+            SerpApi API token.
         session : default = None
             requests Session.
         """
@@ -38,10 +36,7 @@ class SerpApiReader(BaseReader):
         self.session.close()
 
     def data(self, params: dict[str, Union[str, int]], key: str):
-        """
-        Function to obtain data from the FMP API endpoint, given the FMP
-        base url version used by the endpoint, the specific endpoint path,
-        and the parameters after the endpoint used in the request.
+        """Function to obtain data from the SerpApi API endpoints.
 
         Parameters
         ----------

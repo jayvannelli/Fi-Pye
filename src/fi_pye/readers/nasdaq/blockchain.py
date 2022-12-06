@@ -7,7 +7,6 @@ class Blockchain(NasdaqReader):
     Query Nasdaq Data Link API endpoints related to the
     Blockchain dataset published by Quandl.
     """
-
     def difficulty(self, limit: int = 25):
         """Query Nasdaq / BCHAIN/DIFF / API.
 
@@ -187,8 +186,3 @@ class Blockchain(NasdaqReader):
                 "api_key": self.apikey,
             },
         )
-
-
-
-
-

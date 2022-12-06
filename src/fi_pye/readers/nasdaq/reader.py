@@ -15,9 +15,7 @@ class NasdaqReader(BaseReader):
     __slots__ = "apikey", "session", "headers"
 
     def __init__(self, apikey: str, session: requests.Session | None = None):
-        """
-        Create instantiation of reader, which is used to obtain data
-        from Nasdaq without needing to input an API key with each request.
+        """Create instantiation of reader used to obtain data from Nasdaq API.
 
         Parameters
         ----------
@@ -38,9 +36,7 @@ class NasdaqReader(BaseReader):
         self.session.close()
 
     def data(self, base: str, path: str, params: dict[str, Union[str, int]]):
-        """
-        Function to obtain data from Nasdaq API endpoint, given the
-        specific endpoint path and parameters used in request.
+        """Function to obtain data from the Nasdaq API endpoints.
 
         Parameters
         ----------
