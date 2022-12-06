@@ -23,16 +23,16 @@ class CompanyInformation(FmpReader):
 
     Examples
     --------
-    >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+    >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
     >>>
     >>> SYMBOL = "AMD"
     >>>
     >>> amd_profile = company_information.profile(SYMBOL)
     >>> amd_key_execs = company_information.key_executives(SYMBOL)
-    ...
     >>> amd_esg_score = company_information.esg_score(SYMBOL)
     >>> amd_esc_risk_ratings = company_information.esg_risk_rating(SYMBOL)
     """
+
     def profile(self, symbol: str):
         """Query FMP / profile / API.
 
@@ -50,7 +50,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> aapl_profile = company_information.profile("AAPL")
         >>> print(aapl_profile)
@@ -84,7 +84,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> jpm_key_execs = company_information.key_executives("JPM")
         >>> print(jpm_key_execs)
@@ -127,7 +127,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> ko_float = company_information.shares_float("KO")
         >>> print(ko_float)
@@ -162,7 +162,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> crm_executive_comp = company_information.executive_compensation("CRM")
         >>> print(crm_executive_comp.head())
@@ -201,7 +201,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> intc_ibo = company_information.individual_beneficial_ownership("INTC")
         >>> print(intc_ibo.head())
@@ -241,7 +241,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> lulu_stock_peers = company_information.stock_peers("LULU")
         >>> print(lulu_stock_peers)
@@ -274,7 +274,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> amd_core_info = company_information.core_information("AMD")
         >>> print(amd_core_info)
@@ -312,7 +312,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> mmm_rating = company_information.rating("MMM")
         >>> print(mmm_rating)
@@ -346,7 +346,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> aapl_notes_due = company_information.notes_due("AAPL")
         >>> print(aapl_notes_due)
@@ -394,7 +394,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> amzn_esg_score = company_information.esg_score("AMZN")
         >>> print(amzn_esg_score.head())
@@ -433,7 +433,7 @@ class CompanyInformation(FmpReader):
 
         Examples
         --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
+        >>> company_information = CompanyInformation(apikey="abc123") # Initialize data source
         >>>
         >>> hd_esg_risk_ratings = company_information.esg_risk_rating("HD")
         >>> print(hd_esg_risk_ratings.head())

@@ -10,6 +10,7 @@ class SIC(FmpReader):
     numerical codes that categorize the industries that companies
     belong to based on their business activities.' ~ Investopedia
     """
+
     def by_symbol(self, symbol: str):
         """Query FMP / standard_industrial_classification / API.
 

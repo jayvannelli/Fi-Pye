@@ -10,7 +10,12 @@ class PrivateCompanies(FmpReader):
     -----------------
     - Crowdfunding offerings (by company name or CIK number)
     - Equity offerings (by company name or CIK number)
+
+    Examples
+    --------
+    >>> private_companies = PrivateCompanies(apikey="abc123") # Initialize data source
     """
+
     def crowdfunding_offerings(self, company: str):
         """Query FMP / crowdfunding-offerings/search / API.
 
@@ -28,7 +33,7 @@ class PrivateCompanies(FmpReader):
 
         Examples
         -------
-        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>> private_companies = PrivateCompanies(apikey="abc123") # Initialize data source
         >>>
         >>> search_result = private_companies.crowdfunding_offerings('Enotap')
         >>> print(search_result)
@@ -64,7 +69,7 @@ class PrivateCompanies(FmpReader):
 
         Examples
         -------
-        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>> private_companies = PrivateCompanies(apikey="abc123") # Initialize data source
         >>>
         >>> search_result = private_companies.crowdfunding_offerings_by_cik('0001916078')
         >>> print(search_result)
@@ -101,7 +106,7 @@ class PrivateCompanies(FmpReader):
 
         Examples
         -------
-        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>> private_companies = PrivateCompanies(apikey="abc123") # Initialize data source
         >>>
         >>> search_result = private_companies.equity_offerings('marinalife')
         >>> print(search_result)
@@ -134,7 +139,7 @@ class PrivateCompanies(FmpReader):
 
         Examples
         -------
-        >>> private_companies = PrivateCompanies(apikey='abc123')
+        >>> private_companies = PrivateCompanies(apikey="abc123") # Initialize data source
         >>>
         >>> search_result = private_companies.equity_offerings_by_cik('0001870523')
         >>> print(search_result)

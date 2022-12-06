@@ -17,10 +17,15 @@ class FundamentalAnalysis(FmpReader):
     - Key metrics TTM
     - Financial growth
     - Discounted cash flow (DCF) valuation
+    - Historical DCF (daily/quarterly/annual) valuation
     - Advanced DCF valuation
     - Advanced levered DCF valuation
-    - Historical DCF (daily/quarterly/annual) valuation
+
+    Examples
+    --------
+    >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
     """
+
     def financial_ratios(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / ratios / API.
 
@@ -39,6 +44,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> crm_financial_ratios = fundamental_analysis.financial_ratios("CRM")
         """
         return self.data(
             url_version="v3",
@@ -72,6 +83,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> amd_enterprise_value = fundamental_analysis.enterprise_value("AMD")
         """
         return self.data(
             url_version="v3",
@@ -100,6 +117,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> mmm_financial_score = fundamental_analysis.financial_score("MMM")
         """
         return self.data(
             url_version="v4",
@@ -132,6 +155,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> acn_owner_earnings = fundamental_analysis.owner_earnings("ACN")
         """
         return self.data(
             url_version="v4",
@@ -156,6 +185,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> msft_ttm_ratios = fundamental_analysis.ttm_ratios("MSFT")
         """
         return self.data(
             url_version="v4",
@@ -183,6 +218,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> aapl_key_metrics = fundamental_analysis.key_metrics("AAPL")
         """
         return self.data(
             url_version="v3",
@@ -212,6 +253,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> bynd_key_metrics_ttm = fundamental_analysis.key_metrics_ttm("BYND")
         """
         return self.data(
             url_version="v3",
@@ -241,6 +288,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> nike_financial_growth = fundamental_analysis.financial_growth("NKE")
         """
         return self.data(
             url_version="v3",
@@ -266,6 +319,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> dis_dcf = fundamental_analysis.discounted_cash_flow("DIS")
         """
         return self.data(
             url_version="v3",
@@ -289,6 +348,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> tmo_historical_daily_dcf = fundamental_analysis.historical_daily_dcf("TMO")
         """
         return self.data(
             url_version="v3",
@@ -318,6 +383,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> pep_historical_dcf = fundamental_analysis.historical_dcf("PEP", period="quarter")
         """
         return self.data(
             url_version="v3",
@@ -344,6 +415,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> meta_advanced_dcf = fundamental_analysis.advanced_dcf("META")
         """
         return self.data(
             url_version="v4",
@@ -365,6 +442,12 @@ class FundamentalAnalysis(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> fundamental_analysis = FundamentalAnalysis(apikey="abc123") # Initialize data source
+        >>>
+        >>> ko_advanced_levered_dcf = fundamental_analysis.advanced_levered_dcf("KO")
         """
         return self.data(
             url_version="v4",

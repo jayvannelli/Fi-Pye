@@ -13,10 +13,11 @@ class Senators(FmpReader):
 
     Examples
     --------
-    >>> senators = Senators(apikey='abc123') # Initialize data source
+    >>> senators = Senators(apikey="abc123") # Initialize data source
     >>>
     >>> tesla_senate_trading = senators.senate_trading("TSLA")
     """
+
     def senate_trading(self, symbol: str):
         """Query FMP / senate-trading / API.
 

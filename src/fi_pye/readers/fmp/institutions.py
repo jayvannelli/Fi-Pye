@@ -17,7 +17,9 @@ class Institutions(FmpReader):
 
     Examples
     --------
+    >>> institutions = Institutions(apikey="abc123") # Initialize data source
     """
+
     @property
     def institution_list(self):
         """Query FMP / institutional-ownership/list / API.
@@ -32,7 +34,7 @@ class Institutions(FmpReader):
 
         Example
         -------
-        >>> institutions = Institutions(apikey='abc123') # Initialize data source
+        >>> institutions = Institutions(apikey="abc123") # Initialize data source
         >>>
         >>> all_institutions = institutions.institution_list
         >>> print(all_institutions.head())
@@ -72,7 +74,7 @@ class Institutions(FmpReader):
 
         Example
         -------
-        >>> institutions = Institutions(apikey='abc123') # Initialize data source
+        >>> institutions = Institutions(apikey="abc123") # Initialize data source
         >>>
         >>> search_result = institutions.search_for_institution("Berkshire Hathaway")
         >>> print(search_result)
@@ -107,7 +109,7 @@ class Institutions(FmpReader):
 
         Example
         --------
-        >>> institutions = Institutions(apikey='abc123') # Initialize data source
+        >>> institutions = Institutions(apikey="abc123") # Initialize data source
         >>>
         >>> brk_dates = institutions.available_dates("0001067983") # Berkshire Hathaway Inc.
         >>> print(brk_dates.head())

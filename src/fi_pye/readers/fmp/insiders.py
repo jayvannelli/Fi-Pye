@@ -16,6 +16,16 @@ class Insiders(FmpReader):
     - Insider trading (by symbol)
     - Insider roster (by symbol)
     - Insider roster trading stats (by symbol)
+
+    Examples
+    --------
+    >>> insiders = Insiders(apikey="abc123") # Initialize data source
+    >>>
+    >>> TICKER = "TSLA"
+    >>>
+    >>> tsla_insider_trades = insiders.insider_trading(TICKER)
+    >>> tsla_insider_roster = insiders.insider_roster(TICKER)
+    >>> tsla_roster_trading_stats = insiders.insider_roster_stats(TICKER)
     """
 
     def insider_trading(self, symbol: str, page: int = 0):
@@ -34,6 +44,12 @@ class Insiders(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> insiders = Insiders(apikey="abc123") # Initialize data source
+        >>>
+        >>> amd_insider_trades = insiders.insider_trading("AMD")
         """
         return self.data(
             url_version="v4",
@@ -59,6 +75,12 @@ class Insiders(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> insiders = Insiders(apikey="abc123") # Initialize data source
+        >>>
+        >>> wfc_insider_roster = insiders.insider_roster("WFC")
         """
         return self.data(
             url_version="v4",
@@ -83,6 +105,12 @@ class Insiders(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> insiders = Insiders(apikey="abc123") # Initialize data source
+        >>>
+        >>> abt_insider_roster_stats = insiders.insider_roster_stats("ABT")
         """
         return self.data(
             url_version="v4",

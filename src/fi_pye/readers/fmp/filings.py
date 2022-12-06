@@ -15,7 +15,12 @@ class Filings(FmpReader):
     - List of all types of SEC filings
     - All SEC filings for stock (by symbol)
     - Specific SEC filing for stock (by symbol)
+
+    Examples
+    --------
+    >>> filings = Filings(apikey="abc123") # Initialize data source
     """
+
     @property
     def filing_types(self):
         """Get filings types accepted by method 'specific_sec_filing'.

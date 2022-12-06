@@ -28,7 +28,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-        >>> quotes = Quotes(apikey='abc123')
+        >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> indexes_quotes = quotes.indexes
         >>> print(indexes_quotes.head())
@@ -61,7 +61,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-        >>> quotes = Quotes(apikey='abc123')
+        >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> commodities_quotes = quotes.commodities
         >>> print(commodities_quotes.head())
@@ -93,7 +93,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-        >>> quotes = Quotes(apikey='abc123')
+        >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> forex_quotes = quotes.forex
         >>> print(forex_quotes.head())
@@ -126,7 +126,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-         >>> quotes = Quotes(apikey='abc123')
+         >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> currency_exchange_rates_quotes = quotes.currency_exchange_rates
         >>> print(currency_exchange_rates_quotes.head())
@@ -159,7 +159,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-        >>> quotes = Quotes(apikey='abc123')
+        >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> crypto_quotes = quotes.cryptos
         >>> print(crypto_quotes.head())
@@ -192,7 +192,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-        >>> quotes = Quotes(apikey='abc123')
+        >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> nyse_quotes = quotes.nyse
         >>> print(nyse_quotes.head())
@@ -225,7 +225,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-        >>> quotes = Quotes(apikey='abc123')
+        >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> tsx_quotes = quotes.tsx
         >>> print(tsx_quotes.head())
@@ -258,7 +258,7 @@ class Quotes(FmpReader):
 
         Example
         -------
-        >>> quotes = Quotes(apikey='abc123')
+        >>> quotes = Quotes(apikey="abc123")
         >>>
         >>> euronext_quotes = quotes.euronext
         >>> print(euronext_quotes.head())

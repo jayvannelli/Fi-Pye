@@ -11,8 +11,13 @@ class Ownership(FmpReader):
     - Institutional
     - By holders
     - By position size (in %) of portfolio
+
+    Examples
+    --------
+    >>> ownership = Ownership(apikey="abc123")
     """
-    def institutional_ownership(self, symbol: str):
+
+    def institutional_ownership_stats(self, symbol: str):
         """Query FMP / institutional-ownership/symbol-ownership / API.
 
         Returns institutional ownership stats for a given stock (by symbol).
@@ -29,10 +34,10 @@ class Ownership(FmpReader):
 
         Example
         -------
-        >>> ownership = Ownership(apikey='abc123')
+        >>> ownership = Ownership(apikey="abc123")
         >>>
-        >>> aapl_institutional_ownership = ownership.institutional_ownership("AAPL")
-        >>> print(aapl_institutional_ownership.head())
+        >>> aapl_institutional_ownership_stats = ownership.institutional_ownership_stats("AAPL")
+        >>> print(aapl_institutional_ownership_stats.head())
           symbol         cik  ... lastPutCallRatio  putCallRatioChange
         0   AAPL  0000320193  ...           0.0122              0.9614
         1   AAPL  0000320193  ...         448.3858           -448.3736
@@ -74,9 +79,9 @@ class Ownership(FmpReader):
 
         Example
         -------
-        >>> ownership = Ownership(apikey='abc123')
+        >>> ownership = Ownership(apikey="abc123")
         >>>
-        >>> aapl_largest_holders = ownership.ownership_by_holders("AAPL", "2021-09-30", 0)
+        >>> aapl_largest_holders = ownership.ownership_by_holders("AAPL", "2021-09-30")
         >>> print(aapl_largest_holders.head())
                  date         cik  ... changeInPerformance isCountedForPerformance
         0  2021-09-30  0000102909  ...       -1.256115e+10                    True
@@ -120,9 +125,9 @@ class Ownership(FmpReader):
 
         Example
         -------
-        >>> ownership = Ownership(apikey='abc123')
+        >>> ownership = Ownership(apikey="abc123")
         >>>
-        >>> aapl_holders_by_weight = ownership.ownership_by_portfolio_weight("AAPL", "2021-09-30", 0)
+        >>> aapl_holders_by_weight = ownership.ownership_by_portfolio_weight("AAPL", "2021-09-30")
         >>> print(aapl_holders_by_weight.head())
                  date         cik  ... changeInPerformance isCountedForPerformance
         0  2021-09-30  0001308668  ...       -6.024222e+06                    True

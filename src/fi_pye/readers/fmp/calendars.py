@@ -27,7 +27,7 @@ class Calendars(FmpReader):
 
     Examples
     --------
-    >>> calendars = Calendars(apikey='abc123') # Initialize data source
+    >>> calendars = Calendars(apikey="abc123") # Initialize data source
     >>>
     >>> # Maximum of 3 months between 'from' and 'to' dates
     >>> FROM_DATE = "2022-01-01"
@@ -47,6 +47,7 @@ class Calendars(FmpReader):
     >>> confirmed_ipo_cal = calendars.confirmed_ipo(FROM_DATE, TO_DATE)
     >>> ipo_w_prospectus_cal = calendars.ipo_w_prospectus(FROM_DATE, TO_DATE)
     """
+
     def earnings(self, from_date: str, to_date: str):
         """Query FMP / earning_calendar / API.
 
@@ -67,7 +68,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> earnings_cal = calendars.earnings("2022-01-01", "2022-03-25")
         """
@@ -108,7 +109,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> confirmed_earnings_cal = calendars.confirmed_earnings("2022-01-01", "2022-03-25")
         """
@@ -149,7 +150,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> economic_cal = calendars.economic("2022-01-01", "2022-03-25")
         """
@@ -190,7 +191,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> divided_cal = calendars.dividend("2022-01-01", "2022-03-25")
         """
@@ -231,7 +232,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> stock_split_cal = calendars.stock_split("2022-01-01", "2022-03-25")
         """
@@ -272,7 +273,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> ipo_cal = calendars.ipo("2022-01-01", "2022-03-25")
         """
@@ -313,7 +314,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> confirmed_ipo_cal = calendars.confirmed_ipo("2022-01-01", "2022-03-25")
         """
@@ -354,7 +355,7 @@ class Calendars(FmpReader):
 
         Examples
         --------
-        >>> calendars = Calendars(apikey='abc123') # Initialize data source
+        >>> calendars = Calendars(apikey="abc123") # Initialize data source
         >>>
         >>> ipo_w_prospectus_cal = calendars.ipo_w_prospectus("2022-01-01", "2022-03-25")
         """
@@ -386,7 +387,7 @@ class StockCalendars(FmpReader):
 
     Examples
     --------
-    >>> stock_calendars = StockCalendars(apikey='abc123') # Initialize data source
+    >>> stock_calendars = StockCalendars(apikey="abc123") # Initialize data source
     >>>
     >>> # Earnings.
     >>> aapl_historical_earnings = stock_calendars.historical_earnings("AAPL")
@@ -398,7 +399,7 @@ class StockCalendars(FmpReader):
 
     **Using a constant stock symbol**
 
-    >>> stock_calendars = StockCalendars(apikey='abc123') # Initialize data source
+    >>> stock_calendars = StockCalendars(apikey="abc123") # Initialize data source
     >>>
     >>> SYMBOL = "TSLA"
     >>>
@@ -425,7 +426,7 @@ class StockCalendars(FmpReader):
 
         Examples
         --------
-        >>> stock_calendars = StockCalendars(apikey='abc123') # Initialize data source
+        >>> stock_calendars = StockCalendars(apikey="abc123") # Initialize data source
         >>>
         >>> data = stock_calendars.historical_earnings(symbol="AAPL", limit=5)
         """
@@ -455,7 +456,7 @@ class StockCalendars(FmpReader):
 
         Examples
         --------
-        >>> stock_calendars = StockCalendars(apikey='abc123') # Initialize data source
+        >>> stock_calendars = StockCalendars(apikey="abc123") # Initialize data source
         >>>
         >>> data = stock_calendars.historical_dividends(symbol="SHOP", limit=35)
         """

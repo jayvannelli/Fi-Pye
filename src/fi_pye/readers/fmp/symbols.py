@@ -9,7 +9,20 @@ class Symbols(FmpReader):
     This class is used to obtain a list of stock, index, ETF, commodity,
     FX-pair, and cryptocurrency symbols available for quotes and historical
     price queries from FMPs API.
+
+    Symbols
+    -------
+    - All stocks
+    - Tradable stocks
+    - Exchange Traded Fund's (ETF's)
+    - Toronto Stock Exchange (TSX) symbols
+    - Euronext Stock Exchange symbols
+    - Indexes
+    - Commodities
+    - Cryptocurrencies
+    - Forex trading pairs
     """
+
     @property
     def all_stock_symbols(self):
         """Query FMP / stock/list / API.
@@ -23,7 +36,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> all_stocks = symbols.all_stock_symbols
         >>> print(all_stocks.head())
@@ -55,7 +68,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> tradable_stocks = symbols.tradable_stock_symbols
         >>> print(tradable_stocks.head())
@@ -87,7 +100,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> etfs = symbols.etf_symbols
         >>> print(etfs.head())
@@ -119,7 +132,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> tsx_stocks = symbols.tsx_symbols
         >>> print(tsx_stocks.head())
@@ -151,7 +164,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> euronext_stocks = symbols.euronext_symbols
         >>> print(euronext_stocks.head())
@@ -183,7 +196,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> indexes = symbols.index_symbols
         >>> print(indexes.head())
@@ -215,7 +228,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> commodities = symbols.commodities_symbols
         >>> print(commodities.head())
@@ -247,7 +260,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> cryptos = symbols.crypto_symbols
         >>> print(cryptos.head())
@@ -279,7 +292,7 @@ class Symbols(FmpReader):
 
         Example
         -------
-        >>> symbols = Symbols(apikey='abc123')
+        >>> symbols = Symbols(apikey="abc123")
         >>>
         >>> fx_pairs = symbols.fx_currency_pairs
         >>> print(fx_pairs.head())

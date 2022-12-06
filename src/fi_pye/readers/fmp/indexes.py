@@ -14,7 +14,7 @@ class Indexes(FmpReader):
 
     Examples
     --------
-    >>> indexes = Indexes(apikey='abc123') # Initialize data source
+    >>> indexes = Indexes(apikey="abc123") # Initialize data source
     >>>
     >>> # Current index constituents
     >>> sp500 = indexes.sp500_companies
@@ -26,6 +26,7 @@ class Indexes(FmpReader):
     >>> historical_nasdaq = indexes.historical_nasdaq_companies
     >>> historical_dow_jones = indexes.historical_dow_jones_companies
     """
+
     @property
     def sp500_companies(self):
         """Query FMP / sp500_constituent / API.
@@ -39,7 +40,7 @@ class Indexes(FmpReader):
 
         Example
         -------
-        >>> indexes = Indexes(apikey='abc123')
+        >>> indexes = Indexes(apikey="abc123") # Initialize data source
         >>>
         >>> sp_500 = indexes.sp500_companies
         >>> print(sp_500.head())
@@ -72,7 +73,7 @@ class Indexes(FmpReader):
 
         Example
         -------
-        >>> indexes = Indexes(apikey='abc123')
+        >>> indexes = Indexes(apikey="abc123") # Initialize data source
         >>>
         >>> historical_sp_500 = indexes.historical_sp500_companies
         >>> print(historical_sp_500.head())
@@ -104,7 +105,7 @@ class Indexes(FmpReader):
 
         Example
         -------
-        >>> indexes = Indexes(apikey='abc123')
+        >>> indexes = Indexes(apikey="abc123") # Initialize data source
         >>>
         >>> nasdaq = indexes.nasdaq_companies
         >>> print(nasdaq.head())
@@ -136,7 +137,7 @@ class Indexes(FmpReader):
 
         Example
         -------
-        >>> indexes = Indexes(apikey='abc123')
+        >>> indexes = Indexes(apikey="abc123") # Initialize data source
         >>>
         >>> historical_nasdaq = indexes.historical_nasdaq_companies
         >>> print(historical_nasdaq.head())
@@ -168,7 +169,7 @@ class Indexes(FmpReader):
 
         Example
         -------
-        >>> indexes = Indexes(apikey='abc123')
+        >>> indexes = Indexes(apikey="abc123") # Initialize data source
         >>>
         >>> dow_jones = indexes.dow_jones_companies
         >>> print(dow_jones.head())
@@ -200,7 +201,7 @@ class Indexes(FmpReader):
 
         Example
         -------
-        >>> indexes = Indexes(apikey='abc123')
+        >>> indexes = Indexes(apikey="abc123") # Initialize data source
         >>>
         >>> historical_dow_jones = indexes.historical_dow_jones_companies
         >>> print(historical_dow_jones.head())

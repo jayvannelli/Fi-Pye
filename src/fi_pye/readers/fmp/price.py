@@ -14,7 +14,7 @@ class Price(FmpReader):
     price.
     """
 
-    def price(self, symbol: str):
+    def single_price(self, symbol: str):
         """Query FMP / quote /  API.
 
         Return the latest price (quote) for a given symbol.
@@ -194,5 +194,3 @@ class Price(FmpReader):
                 "apikey": self.apikey,
             },
         )
-
-

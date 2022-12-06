@@ -14,7 +14,12 @@ class Performance(FmpReader):
     - Historical sector performance
     - Sector P/E ratio (by date)
     - Industry P/E ratio (by date)
+
+    Example
+    -------
+    >>> performance = Performance(apikey="abc123") # Initialize data source
     """
+
     @property
     def biggest_gainers(self):
         """Query FMP / stock_market/gainers / API.
@@ -28,6 +33,9 @@ class Performance(FmpReader):
 
         Example
         -------
+        >>> performance = Performance(apikey="abc123") # Initialize data source
+        >>>
+        >>> intraday_gainers = performance.biggest_gainers
         """
         return self.data(
             url_version="v3",
@@ -48,6 +56,9 @@ class Performance(FmpReader):
 
         Example
         -------
+        >>> performance = Performance(apikey="abc123") # Initialize data source
+        >>>
+        >>> intraday_losers = performance.biggest_losers
         """
         return self.data(
             url_version="v3",
@@ -68,6 +79,9 @@ class Performance(FmpReader):
 
         Example
         -------
+        >>> performance = Performance(apikey="abc123") # Initialize data source
+        >>>
+        >>> most_active_stocks = performance.most_active
         """
         return self.data(
             url_version="v3",
@@ -86,8 +100,6 @@ class Performance(FmpReader):
         object : pandas.DataFrame
             pandas.Dataframe
 
-        Example
-        -------
         """
         return self.data(
             url_version="v3",
@@ -112,6 +124,9 @@ class Performance(FmpReader):
 
         Example
         -------
+        >>> performance = Performance(apikey="abc123") # Initialize data source
+        >>>
+        >>> intraday_losers = performance.biggest_losers
         """
         return self.data(
             url_version="v3",
@@ -141,6 +156,7 @@ class Performance(FmpReader):
 
         Example
         -------
+        >>> performance = Performance(apikey="abc123") # Initialize data source
         """
         return self.data(
             url_version="v4",
@@ -171,6 +187,7 @@ class Performance(FmpReader):
 
         Example
         -------
+        >>> performance = Performance(apikey="abc123") # Initialize data source
         """
         return self.data(
             url_version="v4",

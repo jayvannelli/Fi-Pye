@@ -20,7 +20,7 @@ class Fundamentals(FmpReader):
 
     Examples
     --------
-    >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+    >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
     >>>
     >>> TICKER = "AAPL"
     >>> PERIOD = "quarter"
@@ -30,6 +30,7 @@ class Fundamentals(FmpReader):
     >>> bal_sheet = fundamentals.balance_sheet(TICKER, PERIOD, LIMIT)
     >>> cash_flow = fundamentals.cash_flow(TICKER, PERIOD, LIMIT)
     """
+
     def income_statement(self, symbol: str, period: str = "annual", limit: int = 25):
         """Query FMP / income-statement / API.
 
@@ -51,7 +52,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.income_statement_growth(symbol="TSLA",
         ...                                             period='quarter',
@@ -88,7 +89,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.income_statement_growth(symbol="AMZN",
         ...                                             period='quarter',
@@ -125,7 +126,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.income_statement_as_reported(symbol="AAPL",
         ...                                                  period='annual',
@@ -162,7 +163,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.balance_sheet(symbol="MMM",
         ...                                   period='quarter',
@@ -199,7 +200,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.balance_sheet_growth(symbol="AMD",
         ...                                          period='annual',
@@ -236,7 +237,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.balance_sheet_as_reported(symbol="PYPL",
         ...                                               period='quarter',
@@ -273,7 +274,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.cash_flow(symbol="GOOGL",
         ...                              period='annual',
@@ -310,7 +311,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.cash_flow_growth(symbol="UL",
         ...                                     period='quarter',
@@ -347,7 +348,7 @@ class Fundamentals(FmpReader):
 
         Examples
         --------
-        >>> fundamentals = Fundamentals(apikey='abc123') # Initialize data source
+        >>> fundamentals = Fundamentals(apikey="abc123") # Initialize data source
         >>>
         >>> data = fundamentals.cash_flow_as_reported(symbol="TSM",
         ...                                          period='annual',

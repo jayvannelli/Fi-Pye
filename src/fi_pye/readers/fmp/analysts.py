@@ -19,7 +19,7 @@ class Analysts(FmpReader):
 
     Examples
     --------
-    >>> analysts = Analysts(apikey='abc123') # Initialize data source
+    >>> analysts = Analysts(apikey="abc123") # Initialize data source
     >>>
     >>> # Stock price targets.
     >>> tsla_pt = analysts.price_target("TSLA")
@@ -35,6 +35,7 @@ class Analysts(FmpReader):
     >>> barclays_targets = analysts.price_target_by_company("Barclays")
     >>> barclays_up_n_down = analysts.price_target_by_company("Barclays")
     """
+
     def price_target(self, symbol: str):
         """Query FMP / price-target / API.
 
@@ -53,7 +54,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> tsla_pt = analysts.price_target("TSLA")
         """
@@ -84,7 +85,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> amd_pt_summary = analysts.price_target_summary("AMD")
         """
@@ -114,7 +115,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> aapl_pt_consensus = analysts.price_target_consensus("AAPL")
         """
@@ -144,7 +145,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> tim_anderson_targets = analysts.price_target_by_analyst("Tim Anderson")
         """
@@ -174,7 +175,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> barclays_targets = analysts.price_target_by_company("Barclays")
         """
@@ -204,7 +205,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> nvda_up_n_down = analysts.upgrades_and_downgrades("NVDA")
         """
@@ -235,7 +236,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> msft_up_n_down_consensus = analysts.upgrades_and_downgrades_consensus("MSFT")
         """
@@ -266,7 +267,7 @@ class Analysts(FmpReader):
 
         Examples
         --------
-        >>> analysts = Analysts(apikey='abc123') # Initialize data source
+        >>> analysts = Analysts(apikey="abc123") # Initialize data source
         >>>
         >>> barclays_up_n_down = analysts.price_target_by_company("Barclays")
         """

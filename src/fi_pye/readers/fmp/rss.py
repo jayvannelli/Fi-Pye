@@ -17,6 +17,7 @@ class RSS(FmpReader):
     - Form 8-K's
     - SEC filings
     """
+
     def institutional_ownership(self, page: int = 0):
         """Query FMP / institutional-ownership/rss_feed / API.
 

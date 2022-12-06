@@ -14,7 +14,15 @@ class Holders(FmpReader):
 
     Examples
     --------
+    >>> holders = Holders(apikey="abc123") # Initialize data source
+    >>>
+    >>> TICKER = "MCD"
+    >>>
+    >>> mcd_institutional_holders = holders.institutional_holders(TICKER)
+    >>> mcd_mutual_fund_holders = holders.mutual_fund_holders(TICKER)
+    >>> mcd_etf_holders = holders.etf_holders(TICKER)
     """
+
     def institutional_holders(self, symbol: str):
         """Query FMP / institutional-holder / API.
 
@@ -29,6 +37,12 @@ class Holders(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> holders = Holders(apikey="abc123") # Initialize data source
+        >>>
+        >>> aapl_institutional_holders = holders.institutional_holders("AAPL")
         """
         return self.data(
             url_version="v3",
@@ -49,7 +63,14 @@ class Holders(FmpReader):
         Return
         -------
         object : pandas.DataFrame
-            pandas.Dataframe"""
+            pandas.Dataframe
+
+        Examples
+        --------
+        >>> holders = Holders(apikey="abc123") # Initialize data source
+        >>>
+        >>> msft_mutual_fund_holders = holders.mutual_fund_holders("MSFT")
+        """
         return self.data(
             url_version="v3",
             path=f"mutual-fund-holder/{symbol.upper()}",
@@ -70,6 +91,12 @@ class Holders(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Examples
+        --------
+        >>> holders = Holders(apikey="abc123") # Initialize data source
+        >>>
+        >>> amzn_etf_holders = holders.etf_holders("AMZN")
         """
         return self.data(
             url_version="v3",

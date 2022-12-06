@@ -11,7 +11,12 @@ class News(FmpReader):
     - General news (general = news across all industries)
     - Industry specific news (stocks, cryptos & forex)
     - Single symbol news (symbol = one stock, crypto or forex ticker symbol)
+
+    Example
+    -------
+    >>> news = News(apikey="abc123") # Initialize data source
     """
+
     def general(self, limit: int = 25):
         """Query FMP / general_news /  API.
 
@@ -26,6 +31,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> general_news = news.general(limit=50)
         """
         return self.data(
             url_version="v4",
@@ -50,6 +61,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> all_stock_news = news.stocks(limit=5)
         """
         return self.data(
             url_version="v3",
@@ -74,6 +91,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> all_crypto_news = news.cryptos(limit=50)
         """
         return self.data(
             url_version="v4",
@@ -98,6 +121,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> all_forex_news = news.forex(limit=50)
         """
         return self.data(
             url_version="v4",
@@ -124,6 +153,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> msft_news = news.single_stock("MSFT")
         """
         return self.data(
             url_version="v3",
@@ -151,6 +186,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> amd_press_releases = news.stock_press_releases("AMD")
         """
         return self.data(
             url_version="v3",
@@ -177,6 +218,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> btc_news = news.single_crypto("BTCUSD")
         """
         return self.data(
             url_version="v4",
@@ -204,6 +251,12 @@ class News(FmpReader):
         -------
         object : pandas.DataFrame
             pandas.Dataframe
+
+        Example
+        -------
+        >>> news = News(apikey="abc123") # Initialize data source
+        >>>
+        >>> usd_myr_news = news.single_crypto("USDMYR") # USD / MYR trading pair
         """
         return self.data(
             url_version="v4",

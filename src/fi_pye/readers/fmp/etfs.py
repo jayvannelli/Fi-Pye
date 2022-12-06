@@ -12,9 +12,13 @@ class ExchangeTradedFunds(FmpReader):
 
     ETFs
     ----
-    - Available dates, by symbol or CIK number
-    - Portfolio holdings, by symbol or CIK number
+    - Available dates (by symbol or CIK number)
+    - Portfolio holdings (by symbol or CIK number)
     - ETF specific data(expense ratio & country/sector weightings)
+
+    Examples
+    --------
+    >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
     """
 
     def available_dates(self, symbol: str):
@@ -35,7 +39,7 @@ class ExchangeTradedFunds(FmpReader):
 
         Example
         --------
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> gdx_dates = etfs.available_dates("GDX")
         >>> print(gdx_dates.head(3))
@@ -85,7 +89,7 @@ class ExchangeTradedFunds(FmpReader):
 
         Example
         --------
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> spy_dates = etfs.available_dates("SPY")
         """
@@ -122,7 +126,7 @@ class ExchangeTradedFunds(FmpReader):
 
         **When the 'date' query is already known**
 
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> xlk_holdings_6_30_2022 = etfs.portfolio_holdings("XLK", "2022-06-30")
                   cik       acceptanceTime        date  ... isCashCollateral isNonCashCollateral isLoanByFund
@@ -134,7 +138,7 @@ class ExchangeTradedFunds(FmpReader):
 
         **When the 'date' query is NOT known, use available dates method**
 
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> xlk_dates = etfs.available_dates("XLK")
         >>> print(xlk_dates.head(2))
@@ -184,7 +188,7 @@ class ExchangeTradedFunds(FmpReader):
 
         Example
         --------
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> spy_dates = etfs.available_dates("SPY")
         """
@@ -223,7 +227,7 @@ class ExchangeTradedFunds(FmpReader):
 
         Example
         --------
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> xle_expense_ratio = etfs.expense_ratio("XLE")
         >>> print(xle_expense_ratio)
@@ -258,7 +262,7 @@ class ExchangeTradedFunds(FmpReader):
 
         Example
         --------
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> veu_countries = etfs.country_weightings("VEU")
         >>> print(veu_countries)
@@ -297,7 +301,7 @@ class ExchangeTradedFunds(FmpReader):
 
         Example
         --------
-        >>> etfs = ExchangeTradedFunds(apikey='abc123') # Initialize data source
+        >>> etfs = ExchangeTradedFunds(apikey="abc123") # Initialize data source
         >>>
         >>> spy_sectors = etfs.sector_weightings("SPY")
         >>> print(spy_sectors)
