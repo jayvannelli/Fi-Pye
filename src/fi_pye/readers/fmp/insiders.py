@@ -3,10 +3,19 @@ from .reader import FmpReader
 
 class Insiders(FmpReader):
     """
+    Query Financial Modeling Prep API endpoints related
+    to stock insiders.
+
     "Insiders" are people who may have valuable private information
     about a company according to their states. In terms of securities
     trading, any director, officer or person who owns more than 10%
     of a company is an insider.
+
+    Insiders
+    --------
+    - Insider trading (by symbol)
+    - Insider roster (by symbol)
+    - Insider roster trading stats (by symbol)
     """
 
     def insider_trading(self, symbol: str, page: int = 0):

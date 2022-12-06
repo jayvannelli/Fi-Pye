@@ -145,39 +145,6 @@ class CompanyInformation(FmpReader):
             },
         )
 
-    def outlook(self, symbol: str):
-        """Query FMP / company-outlook / API.
-
-        Return company outlook for a stock (by symbol).
-
-        Parameters
-        ----------
-        symbol :
-            Stock ticker symbol
-
-        Return
-        -------
-        object : pandas.DataFrame
-            pandas.Dataframe
-
-        Examples
-        --------
-        >>> company_information = CompanyInformation(apikey='abc123') # Initialize data source
-        >>>
-        >>> de_outlook = company_information.outlook("DE")
-        """
-        return 'outlook is currently unavailable. '
-        """
-        return self.data(
-            url_version="v4",
-            path="company-outlook",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
-        )
-        """
-
     def executive_compensation(self, symbol: str):
         """Query FMP / governance/executive_compensation / API.
 

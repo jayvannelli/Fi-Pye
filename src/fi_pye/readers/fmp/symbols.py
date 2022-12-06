@@ -3,6 +3,9 @@ from .reader import FmpReader
 
 class Symbols(FmpReader):
     """
+    Query Financial Modeling Prep API endpoints related
+    to all symbols within an asset-class/equity.
+
     This class is used to obtain a list of stock, index, ETF, commodity,
     FX-pair, and cryptocurrency symbols available for quotes and historical
     price queries from FMPs API.

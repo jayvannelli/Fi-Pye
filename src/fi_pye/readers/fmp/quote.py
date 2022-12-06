@@ -3,6 +3,9 @@ from .reader import FmpReader
 
 class Quotes(FmpReader):
     """
+     Query Financial Modeling Prep API endpoints related
+    to quotes.
+
     This class is used to obtain the latest real-time prices from stocks
     within the New York Stock Exchange (NYSE), Toronto Stock Exchange (TSX),
     and Euronext Exchange (EURONEXT), as well as from equities within

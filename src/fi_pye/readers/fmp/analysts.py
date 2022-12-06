@@ -6,16 +6,13 @@ class Analysts(FmpReader):
     Query Financial Modeling Prep API endpoints related
     to analysts & analyst actions on stocks.
 
-    Stock Endpoints
-    --------------
+    Analysts
+    --------
     - Price target
     - Price target with summary
     - Price target with consensus
     - Upgrades & downgrades
     - Upgrades & downgrades consensus
-
-    Other Endpoints
-    ---------------
     - Price target by analyst name
     - Price target by grading company
     - Upgrades & downgrades by grading company
