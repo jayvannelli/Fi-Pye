@@ -95,5 +95,8 @@ class FmpReader(BaseReader):
         if response.status_code == requests.codes.ok:
             return response
 
+        elif response.status_code == 403:
+            raise ValueError(f"The url: {url} is not available to free api keys.")
+
         else:
-            logging.error(f"Response: {response} with status code: {response.status_code} isn't an okay code. ")
+            logging.error(f"Response error: {response} occurred during http request. ")
