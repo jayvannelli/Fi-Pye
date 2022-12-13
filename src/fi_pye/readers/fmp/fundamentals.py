@@ -64,7 +64,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -101,7 +100,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -138,7 +136,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -175,7 +172,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -212,7 +208,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -249,7 +244,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -286,7 +280,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -323,7 +316,6 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )
 
@@ -360,6 +352,5 @@ class Fundamentals(FmpReader):
             params={
                 "limit": limit,
                 "period": period,
-                "apikey": self.apikey,
             },
         )

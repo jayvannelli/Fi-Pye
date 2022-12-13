@@ -40,7 +40,7 @@ class Performance(FmpReader):
         return self.data(
             url_version="v3",
             path="stock_market/gainers",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -63,7 +63,7 @@ class Performance(FmpReader):
         return self.data(
             url_version="v3",
             path="stock_market/losers",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -86,7 +86,7 @@ class Performance(FmpReader):
         return self.data(
             url_version="v3",
             path="stock_market/actives",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -104,7 +104,7 @@ class Performance(FmpReader):
         return self.data(
             url_version="v3",
             path="sector-performance",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     def historical_sector_performance(self, limit: int):
@@ -131,10 +131,7 @@ class Performance(FmpReader):
         return self.data(
             url_version="v3",
             path="historical-sectors-performance",
-            params={
-                "limit": limit,
-                "apikey": self.apikey
-            },
+            params={"limit": limit}
         )
 
     def sectors_pe_ratio(self, date: str, exchange: str = "NYSE"):
@@ -164,7 +161,6 @@ class Performance(FmpReader):
             params={
                 "date": date,
                 "exchange": exchange,
-                "apikey": self.apikey,
             }
         )
 
@@ -195,6 +191,5 @@ class Performance(FmpReader):
             params={
                 "date": date,
                 "exchange": exchange,
-                "apikey": self.apikey,
             }
         )

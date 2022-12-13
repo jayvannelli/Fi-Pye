@@ -36,10 +36,7 @@ class Senators(FmpReader):
         return self.data(
             url_version="v4",
             path="senate-trading",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def senate_disclosures(self, symbol: str):
@@ -60,8 +57,5 @@ class Senators(FmpReader):
         return self.data(
             url_version="v4",
             path="senate-disclosure",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )

@@ -35,10 +35,7 @@ class MutualFunds(FmpReader):
         return self.data(
             url_version="v4",
             path="mutual-fund-holdings/portfolio-date",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def available_dates_by_cik(self, cik: str):
@@ -60,10 +57,7 @@ class MutualFunds(FmpReader):
         return self.data(
             url_version="v4",
             path="mutual-fund-holdings/portfolio-date",
-            params={
-                "cik": cik,
-                "apikey": self.apikey,
-            },
+            params={"cik": cik}
         )
 
     def portfolio_holdings(self, symbol: str, date: str):
@@ -91,8 +85,7 @@ class MutualFunds(FmpReader):
             params={
                 "symbol": symbol.upper(),
                 "date": date,
-                "apikey": self.apikey,
-            },
+            }
         )
 
     def portfolio_holdings_by_cik(self, cik: str, date: str):
@@ -120,6 +113,5 @@ class MutualFunds(FmpReader):
             params={
                 "cik": cik,
                 "date": date,
-                "apikey": self.apikey,
-            },
+            }
         )

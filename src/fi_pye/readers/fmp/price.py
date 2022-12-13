@@ -34,9 +34,7 @@ class Price(FmpReader):
         return self.data(
             url_version="v3",
             path=f"quote/{symbol.upper()}",
-            params={
-                "apikey": self.apikey,
-            },
+            params=None,
         )
 
     def multiple_prices(self, symbols: List[str]):
@@ -64,9 +62,7 @@ class Price(FmpReader):
         return self.data(
             url_version="v3",
             path=f"quote/{_format_multiple_symbols(symbols)}",
-            params={
-                "apikey": self.apikey,
-            },
+            params=None,
         )
 
     def historical_price(self, symbol: str, timeframe: str):
@@ -95,9 +91,7 @@ class Price(FmpReader):
         return self.data(
             url_version="v3",
             path=f"historical-chart/{timeframe}/{symbol.upper()}",
-            params={
-                "apikey": self.apikey,
-            },
+            params=None,
         )
 
     def historical_daily_price(self, symbol: str, limit: int = 100):
@@ -126,8 +120,7 @@ class Price(FmpReader):
                 params={
                     "timeseries": limit,
                     "serietype": "bar",
-                    "apikey": self.apikey,
-                },
+                }
             )
         )
 
@@ -161,8 +154,7 @@ class Price(FmpReader):
                     "from": start,
                     "to": end,
                     "serietype": "bar",
-                    "apikey": self.apikey,
-                },
+                }
             )
         )
 
@@ -191,6 +183,5 @@ class Price(FmpReader):
             params={
                 "timeseries": limit,
                 "serietype": "bar",
-                "apikey": self.apikey,
-            },
+            }
         )

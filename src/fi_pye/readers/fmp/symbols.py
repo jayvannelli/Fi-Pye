@@ -52,7 +52,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="stock/list",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -84,7 +84,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="available-traded/list",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -116,7 +116,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="etf/list",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -148,7 +148,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="symbol/available-tsx",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -180,7 +180,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="symbol/available-euronext",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -212,7 +212,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="symbol/available-indexes",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -244,7 +244,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="symbol/available-commodities",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -276,7 +276,7 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="symbol/available-cryptocurrencies",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -308,5 +308,5 @@ class Symbols(FmpReader):
         return self.data(
             url_version="v3",
             path="symbol/available-forex-currency-pairs",
-            params={"apikey": self.apikey},
+            params=None,
         )

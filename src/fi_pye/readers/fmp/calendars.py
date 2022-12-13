@@ -85,7 +85,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -126,7 +125,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -167,7 +165,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -208,7 +205,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -249,7 +245,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -290,7 +285,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -331,7 +325,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -372,7 +365,6 @@ class Calendars(FmpReader):
             params={
                 "from": from_d,
                 "to": to_d,
-                "apikey": self.apikey
             },
         )
 
@@ -393,9 +385,6 @@ class StockCalendars(FmpReader):
     >>> aapl_historical_earnings = stock_calendars.historical_earnings("AAPL")
     >>> tsla_historical_earnings = stock_calendars.historical_earnings("TSLA")
     >>>
-    >>> # Dividends.
-    >>> amzn_historical_dividends = stock_calendars.historical_dividends("AMZN")
-    >>> msft_historical_dividends = stock_calendars.historical_dividends("MSFT")
 
     **Using a constant stock symbol**
 
@@ -404,7 +393,6 @@ class StockCalendars(FmpReader):
     >>> SYMBOL = "TSLA"
     >>>
     >>> historical_earnings = stock_calendars.historical_earnings(SYMBOL)
-    >>> historical_dividends = stock_calendars.historical_dividends(SYMBOL)
     """
 
     def historical_earnings(self, symbol: str, limit: int = 25):
@@ -433,35 +421,5 @@ class StockCalendars(FmpReader):
         return self.data(
             url_version="v3",
             path=f"historical/earning_calendar/{symbol.upper()}",
-            params={
-                "limit": limit,
-                "apikey": self.apikey
-            },
-        )
-
-    def historical_dividends(self, symbol: str):
-        """Query FMP / historical-price-full/stock_dividend / API.
-
-        Obtain historical earnings calendar.
-
-        Parameters
-        ----------
-        symbol :
-            Stock ticker symbol
-
-        Return
-        -------
-        object : pandas.DataFrame
-            pandas.Dataframe
-
-        Examples
-        --------
-        >>> stock_calendars = StockCalendars(apikey="abc123") # Initialize data source
-        >>>
-        >>> data = stock_calendars.historical_dividends(symbol="SHOP", limit=35)
-        """
-        return self.data(
-            url_version="v3",
-            path=f"historical-price-full/stock_dividend/{symbol.upper()}",
-            params={"apikey": self.apikey},
+            params={"limit": limit}
         )

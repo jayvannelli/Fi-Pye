@@ -56,9 +56,8 @@ class FundamentalAnalysis(FmpReader):
             path=f"ratios/{symbol.upper()}",
             params={
                 "limit": limit,
-                "period": period,
-                "apikey": self.apikey,
-            },
+                "period": period
+            }
         )
 
     def enterprise_value(self, symbol: str, period: str = "annual", limit: int = 25):
@@ -95,9 +94,8 @@ class FundamentalAnalysis(FmpReader):
             path=f"enterprise-values/{symbol.upper()}",
             params={
                 "limit": limit,
-                "period": period,
-                "apikey": self.apikey,
-            },
+                "period": period
+            }
         )
 
     def financial_score(self, symbol: str):
@@ -127,10 +125,7 @@ class FundamentalAnalysis(FmpReader):
         return self.data(
             url_version="v4",
             path="score",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def owner_earnings(self, symbol: str):
@@ -165,10 +160,7 @@ class FundamentalAnalysis(FmpReader):
         return self.data(
             url_version="v4",
             path="owner_earnings",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def ttm_ratios(self, symbol: str):
@@ -195,9 +187,7 @@ class FundamentalAnalysis(FmpReader):
         return self.data(
             url_version="v4",
             path=f"ratios-ttm/{symbol.upper()}",
-            params={
-                "apikey": self.apikey,
-            },
+            params=None,
         )
 
     def key_metrics(self, symbol: str, period: str = "annual", limit: int = 25):
@@ -230,9 +220,8 @@ class FundamentalAnalysis(FmpReader):
             path=f"key-metrics/{symbol.upper()}",
             params={
                 "limit": limit,
-                "period": period,
-                "apikey": self.apikey,
-            },
+                "period": period
+            }
         )
 
     def key_metrics_ttm(self, symbol: str, period: str = "annual", limit: int = 25):
@@ -265,9 +254,8 @@ class FundamentalAnalysis(FmpReader):
             path=f"key-metrics-ttm/{symbol.upper()}",
             params={
                 "limit": limit,
-                "period": period,
-                "apikey": self.apikey,
-            },
+                "period": period
+            }
         )
 
     def financial_growth(self, symbol: str, period: str = "annual", limit: int = 25):
@@ -300,9 +288,8 @@ class FundamentalAnalysis(FmpReader):
             path=f"financial-growth/{symbol.upper()}",
             params={
                 "limit": limit,
-                "period": period,
-                "apikey": self.apikey,
-            },
+                "period": period
+            }
         )
 
     def discounted_cash_flow(self, symbol: str):
@@ -329,7 +316,7 @@ class FundamentalAnalysis(FmpReader):
         return self.data(
             url_version="v3",
             path=f"discounted-cash-flow/{symbol.upper()}",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     def historical_daily_dcf(self, symbol: str, limit: int = 25):
@@ -358,10 +345,7 @@ class FundamentalAnalysis(FmpReader):
         return self.data(
             url_version="v3",
             path=f"historical-daily-discounted-cash-flow/{symbol.upper()}",
-            params={
-                "limit": limit,
-                "apikey": self.apikey,
-            },
+            params={"limit": limit}
         )
 
     def historical_dcf(self, symbol: str, period: str = "annual", limit: int = 25):
@@ -395,9 +379,8 @@ class FundamentalAnalysis(FmpReader):
             path=f"historical-discounted-cash-flow-statement/{symbol.upper()}",
             params={
                 "period": period,
-                "limit": limit,
-                "apikey": self.apikey,
-            },
+                "limit": limit
+            }
         )
 
     def advanced_dcf(self, symbol: str):
@@ -425,7 +408,7 @@ class FundamentalAnalysis(FmpReader):
         return self.data(
             url_version="v4",
             path="advanced_discounted_cash_flow",
-            params={"symbol": symbol.upper(), "apikey": self.apikey},
+            params={"symbol": symbol.upper()}
         )
 
     def advanced_levered_dcf(self, symbol: str):
@@ -452,5 +435,5 @@ class FundamentalAnalysis(FmpReader):
         return self.data(
             url_version="v4",
             path="advanced_levered_discounted_cash_flow",
-            params={"symbol": symbol.upper(), "apikey": self.apikey},
+            params={"symbol": symbol.upper()}
         )

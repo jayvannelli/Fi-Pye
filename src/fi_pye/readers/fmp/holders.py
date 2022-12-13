@@ -47,7 +47,7 @@ class Holders(FmpReader):
         return self.data(
             url_version="v3",
             path=f"institutional-holder/{symbol.upper()}",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     def mutual_fund_holders(self, symbol: str):
@@ -74,7 +74,7 @@ class Holders(FmpReader):
         return self.data(
             url_version="v3",
             path=f"mutual-fund-holder/{symbol.upper()}",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     def etf_holders(self, symbol: str):
@@ -101,5 +101,5 @@ class Holders(FmpReader):
         return self.data(
             url_version="v3",
             path=f"etf-stock-exposure/{symbol.upper()}",
-            params={"apikey": self.apikey},
+            params=None,
         )

@@ -30,8 +30,5 @@ class SIC(FmpReader):
         return self.data(
             url_version="v4",
             path="standard_industrial_classification",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )

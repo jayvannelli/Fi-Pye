@@ -63,7 +63,6 @@ class Analysts(FmpReader):
             path="price-target",
             params={
                 "symbol": symbol.upper(),
-                "apikey": self.apikey,
             },
         )
 
@@ -94,7 +93,6 @@ class Analysts(FmpReader):
             path="price-target-summary",
             params={
                 "symbol": symbol.upper(),
-                "apikey": self.apikey,
             },
         )
 
@@ -122,10 +120,7 @@ class Analysts(FmpReader):
         return self.data(
             url_version="v4",
             path="price-target-consensus",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def price_target_by_analyst(self, analyst_name: str):
@@ -152,10 +147,7 @@ class Analysts(FmpReader):
         return self.data(
             url_version="v4",
             path="price-target-analyst-name",
-            params={
-                "name": analyst_name,
-                "apikey": self.apikey,
-            },
+            params={"name": analyst_name}
         )
 
     def price_target_by_company(self, company: str):
@@ -182,10 +174,7 @@ class Analysts(FmpReader):
         return self.data(
             url_version="v4",
             path="price-target-analyst-company",
-            params={
-                "company": company,
-                "apikey": self.apikey,
-            },
+            params={"company": company}
         )
 
     def upgrades_and_downgrades(self, symbol: str):
@@ -212,10 +201,7 @@ class Analysts(FmpReader):
         return self.data(
             url_version="v4",
             path="upgrades-downgrades",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def upgrades_and_downgrades_consensus(self, symbol: str):
@@ -243,10 +229,7 @@ class Analysts(FmpReader):
         return self.data(
             url_version="v4",
             path="upgrades-downgrades-consensus",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def upgrades_and_downgrades_by_company(self, company: str):
@@ -274,8 +257,5 @@ class Analysts(FmpReader):
         return self.data(
             url_version="v4",
             path="upgrades-downgrades-grading-company",
-            params={
-                "company": company,
-                "apikey": self.apikey,
-            },
+            params={"company": company}
         )

@@ -51,7 +51,7 @@ class Institutions(FmpReader):
         return self.data(
             url_version="v4",
             path="institutional-ownership/list",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     def search_for_institution(self, institution: str):
@@ -84,10 +84,7 @@ class Institutions(FmpReader):
         return self.data(
             url_version="v4",
             path="institutional-ownership/name",
-            params={
-                "name": institution,
-                "apikey": self.apikey
-            },
+            params={"name": institution}
         )
 
     def available_dates(self, cik: str):
@@ -152,10 +149,7 @@ class Institutions(FmpReader):
         return self.data(
             url_version="v4",
             path="institutional-ownership/portfolio-date",
-            params={
-                "cik": cik,
-                "apikey": self.apikey,
-            },
+            params={"cik": cik}
         )
 
     def portfolio_summary(self, cik: str, date: str):
@@ -180,9 +174,8 @@ class Institutions(FmpReader):
             path="institutional-ownership/portfolio-holdings-summary",
             params={
                 "cik": cik,
-                "date": date,
-                "apikey": self.apikey,
-            },
+                "date": date
+            }
         )
 
     def portfolio_composition(self, cik: str, date: str):
@@ -210,8 +203,7 @@ class Institutions(FmpReader):
             params={
                 "cik": cik,
                 "date": date,
-                "apikey": self.apikey,
-            },
+            }
         )
 
     def portfolio_industry_summary(self, cik: str, date: str):
@@ -237,6 +229,5 @@ class Institutions(FmpReader):
             params={
                 "cik": cik,
                 "date": date,
-                "apikey": self.apikey,
-            },
+            }
         )

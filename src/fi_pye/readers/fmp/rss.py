@@ -36,10 +36,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v4",
             path="institutional-ownership/rss_feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def price_targets(self, page: int = 0):
@@ -60,10 +57,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v4",
             path="price-target-rss-feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def mergers_and_acquisitions(self, page: int = 0):
@@ -84,10 +78,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v4",
             path="mergers-acquisitions-rss-feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def insider_trades(self, page: int = 0):
@@ -108,10 +99,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v4",
             path="insider-trading-rss-feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def senate_trades(self, page: int = 0):
@@ -132,10 +120,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v4",
             path="senate-trading-rss-feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def senate_disclosures(self, page: int = 0):
@@ -156,10 +141,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v4",
             path="senate-disclosure-rss-feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def eightk_filings(self, page: int = 0, with_financials: bool = True):
@@ -212,10 +194,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v3",
             path="rss_feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def crowdfunding_offerings(self, page: int = 0):
@@ -236,10 +215,7 @@ class RSS(FmpReader):
         return self.data(
             url_version="v3",
             path="crowdfunding-offerings-rss-feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )
 
     def equity_fundraising_offerings(self, page: int = 0):
@@ -260,8 +236,5 @@ class RSS(FmpReader):
         return self.data(
             url_version="v3",
             path="fundraising-rss-feed",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            },
+            params={"page": page}
         )

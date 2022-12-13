@@ -29,9 +29,8 @@ class Sentiment(FmpReader):
             path="social-sentiment",
             params={
                 "symbol": symbol.upper(),
-                "page": page,
-                "apikey": self.apikey,
-            },
+                "page": page
+            }
         )
 
     def trending_social_sentiment(self, type: str, source: str = "twitter"):
@@ -56,9 +55,8 @@ class Sentiment(FmpReader):
             path="social-sentiments/trending",
             params={
                 "type": type,
-                "source": source,
-                "apikey": self.apikey,
-            },
+                "source": source
+            }
         )
 
     def change_in_social_sentiment(self, type: str, source: str = "twitter"):
@@ -83,7 +81,6 @@ class Sentiment(FmpReader):
             path="social-sentiments/change",
             params={
                 "type": type,
-                "source": source,
-                "apikey": self.apikey,
-            },
+                "source": source
+            }
         )

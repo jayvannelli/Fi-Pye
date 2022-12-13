@@ -53,10 +53,7 @@ class Filings(FmpReader):
         return self.data(
             url_version="v3",
             path=f"sec_filings/{symbol.upper()}",
-            params={
-                "page": page,
-                "apikey": self.apikey,
-            }
+            params={"page": page}
         )
 
     def specific_stock_filing(self, symbol: str, type: str, page: int = 0):
@@ -85,6 +82,5 @@ class Filings(FmpReader):
             params={
                 "type": _validate_sec_filing_type(type),
                 "page": page,
-                "apikey": self.apikey,
             }
         )

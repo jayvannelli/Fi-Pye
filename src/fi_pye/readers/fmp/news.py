@@ -41,10 +41,7 @@ class News(FmpReader):
         return self.data(
             url_version="v4",
             path="general_news",
-            params={
-                "limit": limit,
-                "apikey": self.apikey,
-            },
+            params={"limit": limit},
         )
 
     def stocks(self, limit: int = 25):
@@ -71,10 +68,7 @@ class News(FmpReader):
         return self.data(
             url_version="v3",
             path="stock_news",
-            params={
-                "limit": limit,
-                "apikey": self.apikey,
-            },
+            params={"limit": limit}
         )
 
     def cryptos(self, limit: int = 25):
@@ -101,10 +95,7 @@ class News(FmpReader):
         return self.data(
             url_version="v4",
             path="crypto_news",
-            params={
-                "limit": limit,
-                "apikey": self.apikey,
-            },
+            params={"limit": limit}
         )
 
     def forex(self, limit: int = 25):
@@ -131,10 +122,7 @@ class News(FmpReader):
         return self.data(
             url_version="v4",
             path="forex_news",
-            params={
-                "limit": limit,
-                "apikey": self.apikey,
-            },
+            params={"limit": limit}
         )
 
     def single_stock(self, symbol: str, limit: int = 25):
@@ -166,8 +154,7 @@ class News(FmpReader):
             params={
                 "tickers": symbol.upper(),
                 "limit": limit,
-                "apikey": self.apikey,
-            },
+            }
         )
 
     def stock_press_releases(self, symbol: str, limit: int = 25):
@@ -196,10 +183,7 @@ class News(FmpReader):
         return self.data(
             url_version="v3",
             path=f"press-releases/{symbol.upper()}",
-            params={
-                "limit": limit,
-                "apikey": self.apikey,
-            },
+            params={"limit": limit}
         )
 
     def single_crypto(self, symbol: str, limit: int = 25):
@@ -231,8 +215,7 @@ class News(FmpReader):
             params={
                 "symbol": symbol.upper(),
                 "limit": limit,
-                "apikey": self.apikey,
-            },
+            }
         )
 
     def single_forex(self, symbol: str, limit: int = 25):
@@ -264,6 +247,5 @@ class News(FmpReader):
             params={
                 "symbol": symbol.upper(),
                 "limit": limit,
-                "apikey": self.apikey,
-            },
+            }
         )

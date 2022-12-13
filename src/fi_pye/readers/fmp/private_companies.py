@@ -46,10 +46,7 @@ class PrivateCompanies(FmpReader):
         return self.data(
             url_version="v4",
             path="crowdfunding-offerings/search",
-            params={
-                "name": company,
-                "apikey": self.apikey,
-            },
+            params={"name": company}
         )
 
     def crowdfunding_offerings_by_cik(self, cik: str):
@@ -83,10 +80,7 @@ class PrivateCompanies(FmpReader):
         return self.data(
             url_version="v4",
             path="crowdfunding-offerings",
-            params={
-                "cik": cik,
-                "apikey": self.apikey,
-            },
+            params={"cik": cik}
         )
 
     def equity_offerings(self, company: str):
@@ -116,10 +110,7 @@ class PrivateCompanies(FmpReader):
         return self.data(
             url_version="v4",
             path="fundraising/search",
-            params={
-                "name": company,
-                "apikey": self.apikey,
-            },
+            params={"name": company}
         )
 
     def equity_offerings_by_cik(self, cik: str):
@@ -152,8 +143,5 @@ class PrivateCompanies(FmpReader):
         return self.data(
             url_version="v4",
             path="fundraising",
-            params={
-                "cik": cik,
-                "apikey": self.apikey,
-            },
+            params={"cik": cik}
         )

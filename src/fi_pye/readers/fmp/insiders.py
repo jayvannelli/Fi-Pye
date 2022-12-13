@@ -56,9 +56,8 @@ class Insiders(FmpReader):
             path="insider-trading",
             params={
                 "symbol": symbol.upper(),
-                "page": page,
-                "apikey": self.apikey,
-            },
+                "page": page
+            }
         )
 
     def insider_roster(self, symbol: str):
@@ -85,10 +84,7 @@ class Insiders(FmpReader):
         return self.data(
             url_version="v4",
             path="insider-roaster",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def insider_roster_stats(self, symbol: str):
@@ -115,8 +111,5 @@ class Insiders(FmpReader):
         return self.data(
             url_version="v4",
             path="insider-roaster-statistic",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )

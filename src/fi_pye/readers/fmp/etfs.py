@@ -65,10 +65,7 @@ class ExchangeTradedFunds(FmpReader):
         return self.data(
             url_version="v4",
             path="etf-holdings/portfolio-date",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def available_dates_by_cik(self, cik: str):
@@ -96,10 +93,7 @@ class ExchangeTradedFunds(FmpReader):
         return self.data(
             url_version="v4",
             path="etf-holdings/portfolio-date",
-            params={
-                "cik": cik,
-                "apikey": self.apikey,
-            },
+            params={"cik": cik}
         )
 
     def portfolio_holdings(self, symbol: str, date: str):
@@ -162,9 +156,8 @@ class ExchangeTradedFunds(FmpReader):
             path="etf-holdings",
             params={
                 "symbol": symbol.upper(),
-                "date": date,
-                "apikey": self.apikey,
-            },
+                "date": date
+            }
         )
 
     def portfolio_holdings_by_cik(self, cik: str, date: str):
@@ -198,8 +191,7 @@ class ExchangeTradedFunds(FmpReader):
             params={
                 "cik": cik,
                 "date": date,
-                "apikey": self.apikey,
-            },
+            }
         )
 
     def expense_ratio(self, symbol: str):
@@ -239,10 +231,7 @@ class ExchangeTradedFunds(FmpReader):
         return self.data(
             url_version="v4",
             path="etf-info",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def country_weightings(self, symbol: str):
@@ -281,7 +270,7 @@ class ExchangeTradedFunds(FmpReader):
         return self.data(
             url_version="v3",
             path=f"etf-country-weightings/{symbol.upper()}",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     def sector_weightings(self, symbol: str):
@@ -321,5 +310,5 @@ class ExchangeTradedFunds(FmpReader):
         return self.data(
             url_version="v3",
             path=f"etf-sector-weightings/{symbol.upper()}",
-            params={"apikey": self.apikey},
+            params=None,
         )

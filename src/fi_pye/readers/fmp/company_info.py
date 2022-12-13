@@ -62,9 +62,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v3",
             path=f"profile/{symbol.upper()}",
-            params={
-                "apikey": self.apikey,
-            },
+            params=None
         )
 
     def key_executives(self, symbol: str):
@@ -105,9 +103,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v3",
             path=f"key-executives/{symbol.upper()}",
-            params={
-                "apikey": self.apikey,
-            },
+            params=None
         )
 
     def shares_float(self, symbol: str):
@@ -139,10 +135,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="shares_float",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def executive_compensation(self, symbol: str):
@@ -178,10 +171,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="governance/executive_compensation",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def individual_beneficial_ownership(self, symbol: str):
@@ -218,10 +208,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="insider/ownership/acquisition_of_beneficial_ownership",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def stock_peers(self, symbol: str):
@@ -251,10 +238,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="stock_peers",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def core_information(self, symbol: str):
@@ -286,10 +270,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="company-core-information",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def rating(self, symbol: str):
@@ -324,9 +305,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v3",
             path=f"rating/{symbol.upper()}",
-            params={
-                "apikey": self.apikey,
-            },
+            params=None
         )
 
     def notes_due(self, symbol: str):
@@ -371,10 +350,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="company-notes",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def esg_score(self, symbol: str):
@@ -410,10 +386,7 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="esg-environmental-social-governance-data",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )
 
     def esg_risk_rating(self, symbol: str):
@@ -449,8 +422,5 @@ class CompanyInformation(FmpReader):
         return self.data(
             url_version="v4",
             path="esg-environmental-social-governance-data-ratings",
-            params={
-                "symbol": symbol.upper(),
-                "apikey": self.apikey,
-            },
+            params={"symbol": symbol.upper()}
         )

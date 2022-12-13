@@ -56,7 +56,7 @@ class Indexes(FmpReader):
         return self.data(
             url_version="v3",
             path="sp500_constituent",
-            params={"apikey": self.apikey},
+            params=None
         )
 
     @property
@@ -89,7 +89,7 @@ class Indexes(FmpReader):
         return self.data(
             url_version="v3",
             path="historical/sp500_constituent",
-            params={"apikey": self.apikey},
+            params=None
         )
 
     @property
@@ -121,7 +121,7 @@ class Indexes(FmpReader):
         return self.data(
             url_version="v3",
             path="nasdaq_constituent",
-            params={"apikey": self.apikey},
+            params=None
         )
 
     @property
@@ -153,7 +153,7 @@ class Indexes(FmpReader):
         return self.data(
             url_version="v3",
             path="historical/nasdaq_constituent",
-            params={"apikey": self.apikey},
+            params=None
         )
 
     @property
@@ -185,7 +185,7 @@ class Indexes(FmpReader):
         return self.data(
             url_version="v3",
             path="dowjones_constituent",
-            params={"apikey": self.apikey},
+            params=None
         )
 
     @property
@@ -217,5 +217,5 @@ class Indexes(FmpReader):
         return self.data(
             url_version="v3",
             path="historical/dowjones_constituent",
-            params={"apikey": self.apikey},
+            params=None
         )

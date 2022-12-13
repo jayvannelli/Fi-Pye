@@ -39,7 +39,7 @@ class FmpReader(BaseReader):
         """Close requests session."""
         self.session.close()
 
-    def data(self, url_version: str, path: str, params: dict[str, Union[str, int]]):
+    def data(self, url_version: str, path: str, params: dict[str, Union[str, int]] | None):
         """
         Function to obtain data from the FMP API endpoint, given the FMP
         base url version used by the endpoint, the specific endpoint path,
@@ -59,6 +59,11 @@ class FmpReader(BaseReader):
         object : pandas.DataFrame | None
             pandas.Dataframe
         """
+        if params is None:
+            params = {"apikey": self.apikey}
+        else:
+            params.update({"apikey": self.apikey})
+
         try:
             return self._get_data(url=_construct_url(url_version, path), params=params)
         finally:
@@ -66,17 +71,18 @@ class FmpReader(BaseReader):
 
     def _get_data(self, url, params):
         """ """
-        out_json = self._get_response(url=url, params=params).json()
-        if "historical-price-full/stock_dividend/" in url:
-            out = out_json
+        with self.session as s:
+            r = s.get(url=url, params=params, timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT))
 
-        try:
-            out = pd.DataFrame(out_json)
+            if r.status_code == requests.codes.ok:
+                out = r.json()
 
-        except Exception as e:
-            logging.error(f"DataFrame conversion exception: {e}")
+            elif r.status_code == 403:
+                raise ValueError(f"The url: {url} is not available to free api keys.")
 
-        else:
+            else:
+                logging.error(f"Response error: {r} occurred during http request. ")
+
             if len(out) == 0:
                 service = self.__class__.__name__
                 raise IOError(
@@ -84,19 +90,4 @@ class FmpReader(BaseReader):
                     f"Request url: {url} ."
                 )
 
-            return out
-
-    def _get_response(self, url, params=None, headers=None):
-        """ """
-        headers = headers or self.headers
-        response = self.session.get(
-            url=url, params=params, headers=headers, timeout=(CONNECTION_TIMEOUT, READ_TIMEOUT)
-        )
-        if response.status_code == requests.codes.ok:
-            return response
-
-        elif response.status_code == 403:
-            raise ValueError(f"The url: {url} is not available to free api keys.")
-
-        else:
-            logging.error(f"Response error: {response} occurred during http request. ")
+        return pd.DataFrame(out)

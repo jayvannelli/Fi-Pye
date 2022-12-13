@@ -53,8 +53,7 @@ class Ownership(FmpReader):
             params={
                 "symbol": symbol.upper(),
                 "includeCurrentQuarter": "true",
-                "apikey": self.apikey,
-            },
+            }
         )
 
     def ownership_by_holders(self, symbol: str, report_date: str, page: int = 0):
@@ -99,8 +98,7 @@ class Ownership(FmpReader):
                 "symbol": symbol.upper(),
                 "date": report_date,
                 "page": page,
-                "apikey": self.apikey,
-            },
+            }
         )
 
     def ownership_by_portfolio_weight(self, symbol: str, report_date: str, page: int = 0):
@@ -145,6 +143,5 @@ class Ownership(FmpReader):
                 "symbol": symbol.upper(),
                 "date": report_date,
                 "page": page,
-                "apikey": self.apikey,
-            },
+            }
         )

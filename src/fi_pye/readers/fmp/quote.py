@@ -44,7 +44,7 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="quotes/index",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -77,7 +77,7 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="quotes/commodity",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -109,7 +109,7 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="quotes/forex",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -142,7 +142,7 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="fx",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -175,7 +175,7 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="quotes/crypto",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -208,7 +208,7 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="quotes/nyse",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -241,7 +241,7 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="quotes/tsx",
-            params={"apikey": self.apikey},
+            params=None,
         )
 
     @property
@@ -274,5 +274,5 @@ class Quotes(FmpReader):
         return self.data(
             url_version="v3",
             path="quotes/euronext",
-            params={"apikey": self.apikey},
+            params=None,
         )
